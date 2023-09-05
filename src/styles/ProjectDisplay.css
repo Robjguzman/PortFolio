@@ -1,0 +1,65 @@
+/* .project {
+  width: 100%;
+  height: calc(100vh - 100px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.project h1 {
+  margin-top: 50px;
+  color: #880505;
+  font-size: 35px;
+}
+.project img {
+  width: 700px;
+  border-radius: 10px;
+}
+
+.project p {
+  font-size: 40px;
+  color: #880505;
+}
+
+.project svg {
+  font-size: 60px;
+  color: #880505;
+} */
+
+.project {
+  width: 100%;
+  min-height: calc(
+    100vh - 100px
+  ); /* Use min-height for better responsiveness */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center; /* Center-align text content */
+  padding: 2% 0; /* Added padding for spacing */
+}
+
+.project h1 {
+  margin-top: 20px; /* Reduced margin-top for better spacing */
+  color: #880505;
+  font-size: 3vw; /* Responsive font size */
+}
+
+.project img {
+  max-width: 100%; /* Ensure the image doesn't overflow its container */
+  max-height: 50vh; /* Set max-height to create a square container */
+  border-radius: 10px;
+}
+
+.project p {
+  font-size: 2.5vw; /* Responsive font size */
+  color: #880505;
+  margin: 10px 0; /* Adjusted margin for better spacing */
+}
+
+.project svg {
+  font-size: 5vw; /* Responsive font size */
+  color: #880505;
+  margin: 10px 0; /* Adjusted margin for better spacing */
+}
