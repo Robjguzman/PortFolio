@@ -60,6 +60,8 @@ export const ProjectList = [
     name: "Python Game",
     image: Proj7,
     skills: "Python, PyGame",
+    description:
+      "Created an interactive Python game using Pygame, implementing player controls and enemy AI for an engaging user experience.",
     github: "https://github.com/Robertguzmanny/Python-Game",
   },
   {
@@ -83,7 +85,7 @@ export const ProjectList = [
     image: Proj10,
     skills: "react.js, express.js, Mysql, JavaScript, HTML, CSS",
     description:
-      "App to get more involved with full-stack projects which involved adding my ",
+      "App to get more involved with full-stack projects which involved adding my favorites links and savinng them in a Postgres database ",
     github: "https://github.com/Robertguzmanny/My_Fav_Links",
   },
 ];

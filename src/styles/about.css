@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #880505; /* Updated color */
+  background: #191970; /* Updated color */
   padding: 2rem;
 }
 
@@ -15,7 +15,7 @@
 }
 
 .about-left-content > div {
-  background: #880505; /* Updated color */
+  background: #191970; /* Updated color */
   padding: 2rem;
   text-align: center;
 }
@@ -76,6 +76,7 @@
   margin: 1rem 0;
   line-height: 1.2;
   padding-bottom: 1rem; /* Added bottom padding */
+  color: rgb(246, 244, 244);
   border-bottom: 2px solid #edffec;
 }
 
@@ -84,7 +85,7 @@
   font-weight: 300;
   letter-spacing: 5px;
   margin-top: 1.2rem;
-  color: rgb(0, 0, 0); /* Text color updated */
+  color: rgb(246, 244, 244); /* Text color updated */
   margin-bottom: 1rem; /* Added bottom margin */
 }
 
@@ -102,12 +103,12 @@
 .about-right h1 {
   font-size: 4rem;
   text-transform: uppercase;
-  color: #880505; /* Updated color */
+  color: #191970; /* Updated color */
   margin-bottom: 1rem; /* Added margin for spacing */
 }
 
 .about-right h1 span {
-  color: #880505; /* Updated color */
+  color: #191970; /* Updated color */
 }
 
 .about-right h2 {
@@ -134,7 +135,7 @@
 }
 
 .btn.btn-blue {
-  background: #880505; /* Updated color */
+  background: #191970; /* Updated color */
   color: #fff;
   border-color: #020001;
   transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
@@ -142,7 +143,7 @@
 
 .btn.btn-blue:hover {
   background: transparent;
-  border-color: #880505; /* Updated color */
+  border-color: #191970; /* Updated color */
   color: #000;
 }
 

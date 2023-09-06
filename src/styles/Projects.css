@@ -41,10 +41,10 @@
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   width: 100%;
-  height: 200px;
+  height: 200px; /* Adjust this height for consistent image sizes */
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
 }
 
 .projectItem h1 {

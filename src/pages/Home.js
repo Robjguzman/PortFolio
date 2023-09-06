@@ -31,8 +31,8 @@ function Home() {
           <li className="item">
             <h2> Front-End</h2>
             <span>
-              ReactJS, Angular, HTML, CSS, NPM, Ionic, BootStrap, MaterialUI,
-              Android XML.
+              ReactJS, Angular, HTML, CSS, Node.JS,Yarn, Ionic, BootStrap,
+              MaterialUI, Android XML.
             </span>
           </li>
           <li className="item">
