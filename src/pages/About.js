@@ -40,9 +40,10 @@ function About() {
         <div className="about-me">
           <p>
             <b>
-              I am Robert Guzman. Aspire Software Engineer with a good variety
-              of Tech stack on the front-end and the back-end as well. Incoming
-              Recent Grad in Computer Science at Lehman College.
+              I am Robert Guzman, an aspiring Software Engineer with a diverse
+              skill set encompassing both front-end and back-end technologies. I
+              am poised to graduate soon with a degree in Computer Science from
+              Lehman College.
             </b>
           </p>
           <br />
