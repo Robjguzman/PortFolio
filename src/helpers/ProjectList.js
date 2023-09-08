@@ -21,7 +21,7 @@ export const ProjectList = [
   {
     name: "Josefina Body Lotion",
     image: Proj2,
-    skills: "HTML,CSS, BootStrap",
+    skills: "HTML, CSS, BootStrap",
     description:
       "eComerce front end project using UI tools - Click github to see code!",
     github: "https://github.com/Robertguzmanny/Project-2",
@@ -45,7 +45,7 @@ export const ProjectList = [
   {
     name: "Attendance Tracking System",
     image: Proj5,
-    skills: "TypeScript,HTML,CSS, Ionic, Angular",
+    skills: "TypeScript, HTML, CSS, Ionic, Angular",
     description:
       "attendance app to facilate the access of taking attendance at school",
     github: "",
@@ -67,7 +67,7 @@ export const ProjectList = [
   {
     name: "Computer Science Lab",
     image: Proj8,
-    skills: "MySQL",
+    skills: "MySQL, Relational Dtabases (Schemas, Diagrams, Tables)",
     description:
       "Computer science lab database to check which students need help and which students were attending tutoring",
     github: "https://github.com/Robertguzmanny/Database-Project-Computer-Lab",
