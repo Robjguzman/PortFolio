@@ -144,6 +144,9 @@ function Experience() {
           </p>
         </VerticalTimelineElement>
       </VerticalTimeline>
+      {/* <div className="Accomplishments">
+        <h1>Accomplishments</h1>
+      </div> */}
     </div>
   );
 }

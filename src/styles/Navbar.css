@@ -13,7 +13,13 @@
   color: black;
   position: relative;
   overflow: hidden; /* Add this to hide the animation overflow */
-  transition: background-color 0.3s ease; /* Smooth background color transition */
+  transition: background-color 0.3s ease;
+}
+
+.links a {
+  margin-bottom: 10px; /* Add margin to create space between the links */
+  text-decoration: none; /* Remove underlines if needed */
+  color: black; /* Adjust link color as needed */
 }
 
 .links::before {
@@ -51,7 +57,7 @@
   margin-right: 20px;
   background-color: transparent;
   border: none;
-  color: white;
+  color: black;
   cursor: pointer;
 }
 

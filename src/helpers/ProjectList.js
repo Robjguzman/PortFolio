@@ -21,7 +21,7 @@ export const ProjectList = [
   {
     name: "Josefina Body Lotion",
     image: Proj2,
-    skills: "HTML,CSS",
+    skills: "HTML,CSS, BootStrap",
     description:
       "eComerce front end project using UI tools - Click github to see code!",
     github: "https://github.com/Robertguzmanny/Project-2",
