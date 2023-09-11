@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   VerticalTimeline,
   VerticalTimelineElement,
@@ -11,6 +11,20 @@ import certificate from "../assets/bootcamp.png";
 import associate from "../assets/associate.png";
 
 function Experience() {
+  const [currentImage, setCurrentImage] = useState(0);
+
+  const images = [certificate, associate];
+
+  const nextImage = () => {
+    setCurrentImage((prevImage) => (prevImage + 1) % images.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImage((prevImage) =>
+      prevImage === 0 ? images.length - 1 : prevImage - 1
+    );
+  };
+
   return (
     <div className="experience">
       <VerticalTimeline lineColor="black">
@@ -151,15 +165,14 @@ function Experience() {
         <h1>Accomplishments</h1>
         <div className="image-container">
           <img
-            src={certificate}
-            alt="Certificate"
-            className="certificate-image"
+            src={images[currentImage]}
+            alt={currentImage === 0 ? "Certificate" : "Associate Degree"}
+            className="image"
           />
-          <img
-            src={associate}
-            alt="Associate Degree"
-            className="associate-degree-image"
-          />
+          <div className="arrow-buttons">
+            <button onClick={prevImage}>&#8249;</button>
+            <button onClick={nextImage}>&#8250;</button>
+          </div>
         </div>
       </div>
     </div>
