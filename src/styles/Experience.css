@@ -18,11 +18,19 @@
 }
 
 .image {
-  max-width: 65%; /* Ensure the image scales with its container */
-  max-height: 65%; /* Ensure the image scales with its container */
+  max-width: 100%; /* Ensure the image scales with its container */
+  height: auto; /* Allow the height to adjust proportionally */
+  width: 70%;
   object-fit: contain; /* Maintain aspect ratio and fit within the container */
   border: 2px solid #000; /* Add a border around the image */
   margin-bottom: 10px; /* Add margin for spacing */
+}
+
+/* Media query for screens with a maximum width of 768px (typical mobile devices) */
+@media screen and (max-width: 768px) {
+  .image {
+    max-width: 90%; /* Reduce the image size for smaller screens */
+  }
 }
 
 /* Navigation Arrows */
