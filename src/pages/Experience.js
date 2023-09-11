@@ -6,6 +6,9 @@ import {
 import "react-vertical-timeline-component/style.min.css";
 import SchoolIcon from "@material-ui/icons/School";
 import WorkIcon from "@material-ui/icons/Work";
+import "../styles/Experience.css";
+import certificate from "../assets/bootcamp.png";
+import associate from "../assets/associate.png";
 
 function Experience() {
   return (
@@ -144,9 +147,21 @@ function Experience() {
           </p>
         </VerticalTimelineElement>
       </VerticalTimeline>
-      {/* <div className="Accomplishments">
+      <div className="Accomplishments">
         <h1>Accomplishments</h1>
-      </div> */}
+        <div className="image-container">
+          <img
+            src={certificate}
+            alt="Certificate"
+            className="certificate-image"
+          />
+          <img
+            src={associate}
+            alt="Associate Degree"
+            className="associate-degree-image"
+          />
+        </div>
+      </div>
     </div>
   );
 }

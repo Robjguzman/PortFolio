@@ -19,7 +19,7 @@
 
 .project img {
   width: 70%; /* Fixed width for consistent size */
-  height: 70%; /* Fixed height for consistent size */
+  max-height: 60vh; /* Fixed height for consistent size */
   object-fit: contain; /* Ensure the entire image is displayed without distortion */
   border-radius: 10px;
 }
@@ -28,6 +28,7 @@
   font-size: 2.5vw; /* Responsive font size */
   color: black;
   margin: 10px 0; /* Adjusted margin for better spacing */
+  text-align: center;
 }
 
 .project svg {
