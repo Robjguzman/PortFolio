@@ -33,20 +33,40 @@
   }
 }
 
-/* Navigation Arrows */
-.arrow-buttons {
+/* Image Container with Arrows */
+.image-container-with-arrows {
+  position: relative;
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px; /* Add padding as needed */
+  margin-bottom: 10px; /* Add margin for spacing */
+  height: 60%;
 }
 
-.arrow-buttons button {
-  font-size: 32px; /* Adjust the font size as needed */
+/* Navigation Arrows */
+.arrow-buttons {
+  font-size: 32px;
   background: transparent;
   border: none;
   cursor: pointer;
-  margin: 0 10px; /* Add margin for spacing */
+  opacity: 0.5;
+  transition: opacity 0.2s;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
 }
 
-.arrow-buttons button:focus {
-  outline: none; /* Remove focus outline */
+.arrow-buttons:hover {
+  opacity: 1;
+}
+
+.arrow-buttons.left {
+  left: 10px;
+}
+
+.arrow-buttons.right {
+  right: 10px;
 }

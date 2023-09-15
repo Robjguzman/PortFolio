@@ -163,15 +163,19 @@ function Experience() {
       </VerticalTimeline>
       <div className="Accomplishments">
         <h1>Accomplishments</h1>
-        <div className="image-container">
-          <img
-            src={images[currentImage]}
-            alt={currentImage === 0 ? "Certificate" : "Associate Degree"}
-            className="image"
-          />
-          <div className="arrow-buttons">
-            <button onClick={prevImage}>&#8249;</button>
-            <button onClick={nextImage}>&#8250;</button>
+        <div className="image-container-with-arrows">
+          <div className="arrow-buttons left" onClick={prevImage}>
+            &#8249;
+          </div>
+          <div className="image-container">
+            <img
+              src={images[currentImage]}
+              alt={currentImage === 0 ? "Certificate" : "Associate Degree"}
+              className="image"
+            />
+          </div>
+          <div className="arrow-buttons right" onClick={nextImage}>
+            &#8250;
           </div>
         </div>
       </div>

@@ -1,0 +1,85 @@
+/* CSS for Contact Page Container */
+.contact-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ensure the container takes up the full viewport height */
+}
+
+/* CSS for Contact Form */
+.contact-container {
+  max-width: 90%; /* Increase the maximum width as needed */
+  padding: 10%; /* Increase the padding to create more space inside the container */
+  text-align: center;
+  background-color: beige; /* Beige background color */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Add any other CSS styles for headings, labels, inputs, buttons, etc. here */
+
+/* Add any other CSS styles for headings, labels, inputs, buttons, etc. here */
+
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: black; /* Black text color */
+}
+
+p {
+  font-size: 1.5em;
+  margin-bottom: 30px;
+  color: black; /* Black text color */
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+label {
+  display: block;
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  color: black; /* Black text color */
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+button {
+  background-color: black; /* Black background color */
+  color: white; /* White text color */
+  font-size: 1.2em;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #333; /* Darker background on hover */
+}
+
+/* Add a subtle animation for button hover effect */
+.button-container:hover button {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}

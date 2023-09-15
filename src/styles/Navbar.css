@@ -16,10 +16,27 @@
   transition: background-color 0.3s ease;
 }
 
+/* Default styling for links */
+/* Default styling for links */
+/* Default styling for links */
 .links a {
-  margin-bottom: 10px; /* Add margin to create space between the links */
   text-decoration: none; /* Remove underlines if needed */
   color: black; /* Adjust link color as needed */
+  padding-right: 20px; /* Add fixed padding to create consistent space between the links */
+}
+
+/* Additional spacing for smaller screens like iPads */
+@media screen and (max-width: 1024px) {
+  .links a {
+    padding-right: 0 20px; /* Maintain the same fixed padding for all links on smaller screens */
+  }
+}
+
+/* Increase padding for "Projects" link on iPad Air or similar devices */
+@media screen and (max-width: 1668px) {
+  .links a[href="/projects"] {
+    padding-right: 30px; /* Increase padding for the "Projects" link on iPad devices */
+  }
 }
 
 .links::before {
