@@ -1,9 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "firebase/firestore"; // Import Firestore
 import emailjs from "emailjs-com";
 import "../styles/Contact.css";
-import { getFirestore, collection, addDoc } from "@firebase/firestore";
-
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  serverTimestamp,
+  query,
+  getDocs,
+} from "@firebase/firestore";
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 
@@ -27,6 +33,21 @@ function Contact() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false); // State to track submission
+  const [nextMessageId, setNextMessageId] = useState(null); // State to store the next message ID
+
+  useEffect(() => {
+    const generateNextMessageId = async () => {
+      const messagesCollection = collection(db, "portfolio");
+      const messagesQuery = query(messagesCollection);
+      const querySnapshot = await getDocs(messagesQuery);
+      const messageCount = querySnapshot.size + 1; // Increment the count
+      return `message${messageCount}`;
+    };
+
+    generateNextMessageId().then((nextId) => {
+      setNextMessageId(nextId);
+    });
+  }, [db]);
 
   const handleSubmit = async (e) => {
     // Make the function asynchronous
@@ -50,7 +71,8 @@ function Contact() {
           setName("");
           setEmail("");
           setMessage("");
-          setIsSubmitted(true); // Set submission state to true
+          setIsSubmitted(true);
+          // Set submission state to true
         },
         (error) => {
           console.error("Email send error:", error);
@@ -58,16 +80,19 @@ function Contact() {
       );
 
     try {
-      // Save data to Firestore
-      const docRef = await addDoc(collection(db, "messages"), {
+      // Save data to Firestore with the generated message ID
+      const docRef = await addDoc(collection(db, "portfolio"), {
         name: name,
         email: email,
         message: message,
+        messageId: nextMessageId,
+        timestamp: serverTimestamp(),
       });
 
       console.log("Document written with ID: ", docRef.id);
 
       // Clear form fields and update submission state (your existing code)
+      setNextMessageId(null); // Reset nextMessageId after submission
     } catch (error) {
       console.error("Error adding document: ", error);
     }
@@ -83,7 +108,7 @@ function Contact() {
       <div className="contact-container">
         <h1>Contact Me</h1>
         <p>
-          have any questions? or just want to connect, please don't hesitate to
+          Have any questions? Or just want to connect, please don't hesitate to
           get in touch!
         </p>
         {isSubmitted ? (

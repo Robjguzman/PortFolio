@@ -30,7 +30,7 @@ function ProjectDisplay() {
 
   return (
     <div className="project">
-      <h1> {project.name}</h1>
+      <h1>{project.name}</h1>
 
       <img src={project.image} alt={project.name} />
 
@@ -50,22 +50,26 @@ function ProjectDisplay() {
         <GitHubIcon className="Github" />
       </a>
 
-      <div className="navigation-buttons">
-        {nextProjectId !== null && (
-          <Link to={`/project/${nextProjectId}`} onClick={handlePrevClick}>
-            <button id="next">Next Project</button>
+      {/* Navigation buttons at the bottom */}
+      <div className="navigation-container">
+        <div className="navigation-buttons">
+          {prevProjectId !== null && (
+            <Link to={`/project/${prevProjectId}`} onClick={handleBackClick}>
+              <button id="prev">Previous Project</button>
+            </Link>
+          )}
+
+          <Link to="/projects">
+            <button id="back" onClick={handleBackClick}>
+              Back to Projects
+            </button>
           </Link>
-        )}
-        {prevProjectId !== null && (
-          <Link to={`/project/${prevProjectId}`} onClick={handleBackClick}>
-            <button id="prev">Previous Project</button>
-          </Link>
-        )}
-        <Link to="/projects">
-          <button id="back" onClick={handleBackClick}>
-            Back to Projects
-          </button>
-        </Link>
+          {nextProjectId !== null && (
+            <Link to={`/project/${nextProjectId}`} onClick={handlePrevClick}>
+              <button id="next">Next Project</button>
+            </Link>
+          )}
+        </div>
       </div>
     </div>
   );

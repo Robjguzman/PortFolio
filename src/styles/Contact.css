@@ -9,16 +9,13 @@
 /* CSS for Contact Form */
 .contact-container {
   max-width: 90%; /* Increase the maximum width as needed */
-  padding: 10%; /* Increase the padding to create more space inside the container */
+  padding: 5%; /* Decrease padding to create more space inside the container */
   text-align: center;
   background-color: beige; /* Beige background color */
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 200px; /* Add a larger margin to create more separation */
 }
-
-/* Add any other CSS styles for headings, labels, inputs, buttons, etc. here */
-
-/* Add any other CSS styles for headings, labels, inputs, buttons, etc. here */
 
 h1 {
   font-size: 2.5em;
@@ -82,4 +79,27 @@ button:hover {
 .button-container:hover button {
   transform: scale(1.05);
   transition: transform 0.3s ease;
+}
+
+/* Responsive CSS */
+@media screen and (max-width: 768px) {
+  .contact-container {
+    padding: 2%; /* Further decrease padding for smaller screens */
+  }
+
+  h1 {
+    font-size: 2em; /* Adjust font size for smaller screens */
+  }
+
+  p {
+    font-size: 1.2em; /* Adjust font size for smaller screens */
+  }
+
+  label {
+    font-size: 1em; /* Adjust font size for smaller screens */
+  }
+
+  button {
+    font-size: 1em; /* Adjust font size for smaller screens */
+  }
 }
