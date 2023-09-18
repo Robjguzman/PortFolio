@@ -75,8 +75,8 @@
   background-color: white;
   padding: 10px;
   display: flex;
-  justify-content: space-between;
-  align-items: center; /* Center vertically within the container */
+  justify-content: flex-end;
+  align-items: right; /* Center vertically within the container */
 }
 
 /* Individual Button Styles */
