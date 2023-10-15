@@ -1,6 +1,6 @@
 // About.js
 import React from "react";
-import "../styles/about.css"; // Import your CSS file
+import "../styles/about.css"; 
 import aboutImage from "../assets/1660781070527.jpeg";
 
 function About() {
@@ -27,7 +27,8 @@ function About() {
           <button
             onClick={() =>
               window.open(
-                "https://lccuny-my.sharepoint.com/:w:/g/personal/robert_guzman3_lc_cuny_edu/ERm30nDuT3ZGucAQPIhlJOwBgo3ljZps4bV5sqKWxMMHtw?e=iDh6Zz"
+                "https://docs.google.com/document/d/1hfa34V4zbOX57wzNzNQpkbe9HeKI_N8yWKPJRHq0K-A/edit?usp=sharing",
+                "_blank"
               )
             }
             type="button"

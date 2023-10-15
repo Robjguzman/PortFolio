@@ -79,3 +79,65 @@
     font-size: 30px;
   }
 }
+
+/* Style for each skill card */
+.skill-card {
+  background-color: #f9f9f9;
+  padding: 20px;
+  margin: 10px 0;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for skill categories (e.g., Front-End, Back-End, Technologies, Languages) */
+.skill-card h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* Style for skill icons */
+.skill-icons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.skill-icons i {
+  margin-right: 10px;
+  font-size: 24px;
+}
+
+/* Media query for responsive design */
+@media (max-width: 768px) {
+  .skill-card {
+    padding: 10px;
+  }
+  
+  .skill-card h2 {
+    font-size: 20px;
+  }
+  
+  .skill-icons i {
+    font-size: 20px;
+    margin-right: 8px;
+  }
+}
+
+.skills-container {
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.skill-card {
+  margin-right: 20px; /* Add spacing between skill cards */
+}
+
+.skill-icons {
+  display: inline-block;
+}
+
+.skill-icons i {
+  margin-right: 10px; /* Add spacing between skill icons */
+}
+

@@ -1,12 +1,20 @@
 .Accomplishments {
-  font-size: 2.5vw;
+  font-size: 3vw; /* Default font size for larger screens */
+
   width: 100%;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
 }
-/* Add these styles to your existing CSS file (e.g., Experience.css) */
+
+/* Media query for smaller screens (e.g., mobile devices) */
+@media screen and (max-width: 480px) {
+  .Accomplishments {
+    font-size: 5vw; /* Increase font size for smaller screens */
+  }
+}
+
 
 /* Image Container */
 .image-container {
