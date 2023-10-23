@@ -1,6 +1,5 @@
 .Accomplishments {
   font-size: 3vw; /* Default font size for larger screens */
-
   width: 100%;
   display: flex;
   justify-content: center;
@@ -15,13 +14,11 @@
   }
 }
 
-
-/* Image Container */
 .image-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  justify-content: center; /* Center the image horizontally */
+  align-items: center; /* Center the image vertically */
+  max-width: 80%;
   padding: 20px; /* Add padding as needed */
 }
 
@@ -41,40 +38,9 @@
   }
 }
 
-/* Image Container with Arrows */
-.image-container-with-arrows {
-  position: relative;
+.swipeable-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding: 20px; /* Add padding as needed */
-  margin-bottom: 10px; /* Add margin for spacing */
-  height: 60%;
-}
-
-/* Navigation Arrows */
-.arrow-buttons {
-  font-size: 32px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  opacity: 0.5;
-  transition: opacity 0.2s;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 1;
-}
-
-.arrow-buttons:hover {
-  opacity: 1;
-}
-
-.arrow-buttons.left {
-  left: 10px;
-}
-
-.arrow-buttons.right {
-  right: 10px;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  max-width: 100%; 
 }

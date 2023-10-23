@@ -141,3 +141,27 @@
   margin-right: 10px; /* Add spacing between skill icons */
 }
 
+.centered-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.responsive-image {
+  max-width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+/* Media query for smaller screens (e.g., mobile devices) */
+@media screen and (max-width: 480px) {
+  .responsive-image {
+    max-width: 100%; /* Adjust the width as needed for smaller screens */
+  }
+}
+
+
+

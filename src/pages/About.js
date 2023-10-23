@@ -3,6 +3,8 @@ import React from "react";
 import "../styles/about.css"; 
 import aboutImage from "../assets/1660781070527.jpeg";
 
+import resume from "../assets/Robert_Guzman_Tech_Resume_2023.pdf";
+
 function About() {
   return (
     <div className="about-wrapper">
@@ -27,7 +29,7 @@ function About() {
           <button
             onClick={() =>
               window.open(
-                "https://docs.google.com/document/d/1hfa34V4zbOX57wzNzNQpkbe9HeKI_N8yWKPJRHq0K-A/edit?usp=sharing",
+                resume,
                 "_blank"
               )
             }
