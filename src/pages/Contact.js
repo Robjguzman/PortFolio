@@ -11,7 +11,6 @@ import {
   getDocs,
 } from "@firebase/firestore";
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDSonZmD79RMp7Z9vnwGiZJ8UqAV8NiXNg",
@@ -25,7 +24,6 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 const db = getFirestore(app);
 
 function Contact() {
