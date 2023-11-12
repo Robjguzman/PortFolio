@@ -16,9 +16,7 @@
   transition: background-color 0.3s ease;
 }
 
-/* Default styling for links */
-/* Default styling for links */
-/* Default styling for links */
+
 .links a {
   text-decoration: none; /* Remove underlines if needed */
   color: black; /* Adjust link color as needed */
@@ -72,11 +70,19 @@
 }
 .toggleButton button {
   margin-right: 20px;
-  background-color: transparent;
+  background-color: beige;
   border: none;
   color: black;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
+
+.toggleButton button:focus {
+  outline: none; /* Remove the default focus outline if it's not needed */
+  background-color: beige; /* Change background color when button is clicked or in focus */
+}
+
+
 
 #open {
   height: 100vh;

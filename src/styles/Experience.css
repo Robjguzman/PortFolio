@@ -14,12 +14,14 @@
   }
 }
 
+
+
 .image-container {
-  display: flex;
-  justify-content: center; /* Center the image horizontally */
-  align-items: center; /* Center the image vertically */
+  position: relative;
   max-width: 80%;
+  margin: 0 auto; /* Center the container horizontally */
   padding: 20px; /* Add padding as needed */
+  text-align: center; /* Center the child elements horizontally */
 }
 
 .image {
@@ -40,7 +42,63 @@
 
 .swipeable-container {
   display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  max-width: 100%; 
+  flex-direction: column; /* Change to relative positioning */
+  align-items: center;
+}
+
+
+.container-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.swipeable-container {
+  position: relative;
+  height: 100%;
+}
+
+.button-container {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+}
+
+.left-arrow {
+  order: 1;
+}
+
+.right-arrow {
+  order: 2;
+}
+
+button {
+  background: rgb(0, 0, 0);
+  border: 1px solid rgb(0, 0, 0);
+  padding: 1rem; /* Adjust padding for button size */
+  font-size: 1.5rem; /* Adjust font size for button size */
+  cursor: pointer;
+  color: #fff;
+}
+
+button:hover {
+  background: #f0f0f0;
+  color: #000;
+}
+
+
+@media screen and (max-width: 768px) {
+  .container-wrapper {
+    height: 100%; /* Adjust styles for smaller screens */
+  }
 }

@@ -15,7 +15,7 @@ function Home() {
       <div className="about">
         <h2> Hey there! I am Robert J. Guzman</h2>
         <div className="prompt">
-          <p>Below are my Teck stack and Technologies</p>
+          <p>Below are my Tech stack and Technologies</p>
           <a href={linkedinUrl} target="_blank" rel="noopener noreferrer">
             <LinkedInIcon />
           </a>

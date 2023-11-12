@@ -9,12 +9,14 @@ import WorkIcon from "@material-ui/icons/Work";
 import "../styles/Experience.css";
 import certificate from "../assets/bootcamp.png";
 import associate from "../assets/associate.png";
+import data from "../assets/R_certificate.png";
 import dean from "../assets/dean.jpeg";
+import CyberSec from "../assets/CyberSec.png";
 import SwipeableViews from "react-swipeable-views";
 
 function Experience() {
   const [currentImage, setCurrentImage] = useState(0);
-  const images = [certificate, associate, dean];
+  const images = [certificate, associate, dean, data, CyberSec];
 
   const handleChangeIndex = (index) => {
     setCurrentImage(index);
@@ -158,22 +160,37 @@ function Experience() {
       </VerticalTimeline>
       <div className="Accomplishments">
         <h3>Accomplishments</h3>
-        <div className="swipeable-container">
-          <SwipeableViews
-            index={currentImage}
-            onChangeIndex={handleChangeIndex}
-            enableMouseEvents
-          >
-            {images.map((image, index) => (
-              <div key={index} className="image-container">
-                <img
-                  src={image}
-                  alt={index === 0 ? "Certificate" : "Associate Degree"}
-                  className="image"
-                />
+        <div className="container-wrapper">
+          <div className="wrapper">
+            <div className="swipeable-container">
+              <SwipeableViews
+                index={currentImage}
+                onChangeIndex={handleChangeIndex}
+                enableMouseEvents
+              >
+                {images.map((image, index) => (
+                  <div key={index} className="image-container">
+                    <img
+                      src={image}
+                      alt={index === 0 ? "Certificate" : "Associate Degree"}
+                      className="image"
+                    />
+                  </div>
+                ))}
+              </SwipeableViews>
+              <div className="button-container">
+                {/* Left arrow */}
+                <button className="left-arrow" onClick={prevImage}>
+                  &#8249;
+                </button>
+
+                {/* Right arrow */}
+                <button className="right-arrow" onClick={nextImage}>
+                  &#8250;
+                </button>
               </div>
-            ))}
-          </SwipeableViews>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -181,6 +198,3 @@ function Experience() {
 }
 
 export default Experience;
-
-
-
