@@ -12,6 +12,8 @@ import {
 } from "@firebase/firestore";
 import { initializeApp } from "firebase/app";
 
+import contact from "../assets/contact.gif";
+
 const firebaseConfig = {
   apiKey: "AIzaSyDSonZmD79RMp7Z9vnwGiZJ8UqAV8NiXNg",
   authDomain: "portfolio-13ed0.firebaseapp.com",
@@ -102,7 +104,9 @@ function Contact() {
   };
 
   return (
+    
     <div className="contact-page">
+           
       <div className="contact-container">
         <h1>Contact Me</h1>
         <p>

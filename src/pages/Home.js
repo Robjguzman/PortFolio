@@ -3,6 +3,7 @@ import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import EmailIcon from "@material-ui/icons/Email";
 import GithubIcon from "@material-ui/icons/GitHub";
 import codingimage from "../assets/animation.gif";
+import codingimage2 from "../assets/codeimage.gif";
 
 import "../styles/Home.css";
 
@@ -119,6 +120,9 @@ function Home() {
           </li>
         </ul>
       </div>
+      <div className="centered-image">
+          <img className="responsive-image"src={codingimage2} alt="Gift"  />
+        </div>
     </div>
   );
 }
