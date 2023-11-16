@@ -12,7 +12,6 @@ import {
 } from "@firebase/firestore";
 import { initializeApp } from "firebase/app";
 
-import contact from "../assets/contact.gif";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDSonZmD79RMp7Z9vnwGiZJ8UqAV8NiXNg",
