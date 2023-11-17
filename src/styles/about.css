@@ -10,67 +10,55 @@
 }
 
 #about-section {
-  width: 100%;
-  height: auto;
   display: flex;
   justify-content: space-between;
-  align-items: flex-start; /* Adjusted alignment to the top */
-  padding: 20px 12%; /* Adjusted padding for closer positioning to the top */
-  background-color: #f5f5dc; /* Beige color */
-  border-radius: 10px;
+  align-items: flex-start;
+  padding: 20px 12%;
+  background-color: white;
   margin-top: 40px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  border: 2px solid #000000; /* Updated border color to black */
 }
 
 .about-left img {
   width: 420px;
   height: auto;
-  margin-top: 20px; /* Adjusted margin-top for centering */
+  margin-top: 20px;
   border-radius: 10px;
+  margin-right: 40px;
 }
 
 .about-right {
   width: 54%;
-  margin-bottom: 20px; /* Add some margin at the bottom */
+  margin-bottom: 20px;
+  margin-right: 40px; /* Added margin to the right side */
 }
 
 .about-right h1 {
   color: #3d3522;
-  font-size: 32px; /* Adjusted font size */
-  margin-bottom: 10px; /* Increased margin-bottom for spacing */
+  font-size: 32px;
+  margin-bottom: 20px;
 }
 
 .about-right p {
   color: #4d4d33;
-  line-height: 24px; /* Adjusted line height for better readability */
-  font-size: 16px; /* Adjusted font size */
+  line-height: 2.0; /* Adjusted line-height for more space */
+  font-size: 16px;
+  margin-bottom: 20px; /* Increased margin-bottom for more separation */
+  text-align: justify;
 }
 
-.address .address-logo {
-  margin-right: 10px; /* Slightly reduced margin-right for better alignment */
+.interests-hobbies h2,
+.goals h2 {
+  font-size: 24px;
   color: #3d3522;
+  margin-bottom: 30px; /* Increased margin-bottom for more separation */
 }
 
-.address .saprater {
-  margin: 0 20px; /* Reduced margin for better spacing */
-}
-
-.about-right .expertise ul {
-  width: 90%; /* Increased width for better spacing */
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.expertise h3 {
-  margin-bottom: 8px; /* Reduced margin-bottom for spacing */
-}
-
-.expertise .expertise-logo {
-  font-size: 18px; /* Adjusted font size */
-  margin-right: 8px; /* Reduced margin-right for better alignment */
-  color: #3d3522;
+.interests-hobbies p,
+.goals p {
+  color: #4d4d33;
+  line-height: 2.0; /* Adjusted line-height for more space */
+  font-size: 16px;
+  margin-bottom: 20px; /* Increased margin-bottom for more separation */
 }
 
 /* Media Queries for responsiveness */
@@ -87,43 +75,19 @@
 
   .about-right {
     width: 100%;
-    margin-bottom: 20px; /* Add some margin at the bottom for smaller screens */
+    margin-bottom: 20px;
+    margin-right: 0; /* Removed margin-right for smaller screens */
   }
 
   .about-right h1 {
-    font-size: 28px; /* Adjusted font size for smaller screens */
-    margin-bottom: 8px; /* Reduced margin-bottom for spacing */
+    font-size: 28px;
+    margin-bottom: 15px; /* Adjusted margin-bottom for more separation */
   }
 
   .about-right p {
-    font-size: 14px; /* Adjusted font size for smaller screens */
-  }
-
-  .address .address-logo {
-    margin-right: 8px; /* Reduced margin-right for better alignment */
-  }
-
-  .address .saprater {
-    margin: 0 15px; /* Reduced margin for better spacing */
-  }
-
-  .about-right .expertise ul {
-    width: 100%; /* Adjusted width for better spacing on smaller screens */
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .expertise .expertise-logo {
-    margin-bottom: 8px; /* Reduced margin-bottom for spacing */
+    font-size: 14px;
   }
 }
-
-
-
-
-
-/* About.css */
-/* Existing styles... */
 
 .resume-button {
   border: none;
@@ -134,23 +98,19 @@
   padding: 0.5rem 1rem;
   width: 130px;
   font-weight: 600;
-  margin: 6rem 1rem; /* Updated margin-top to move the button further down */
+  margin: 6rem 1rem;
   cursor: pointer;
   transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
 }
 
 .resume-button.resume-button {
-  background: black; /* Orange color */
+  background: black;
   color: #fff;
   border-color: #020001;
 }
 
 .resume-button.resume-button:hover {
   background: transparent;
-  border-color: black; /* Orange color */
+  border-color: black;
   color: #000;
 }
-
-
-
-
