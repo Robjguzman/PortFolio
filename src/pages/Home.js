@@ -30,7 +30,7 @@ function Home() {
       </div>
       <div className="container">
         <div className="centered-image">
-          <img className="responsive-image"src={codingimage} alt="Gift"  />
+          <img className="responsive-image" src={codingimage} alt="Gift" />
         </div>
       </div>
 
@@ -115,14 +115,16 @@ function Home() {
               <i className="fab fa-js" style={{ color: "#F7DF1E" }}></i>{" "}
               <span className="skill-name">JavaScript</span>,{" "}
               <i className="fab fa-react" style={{ color: "#61DAFB" }}></i>{" "}
-              <span className="skill-name">TypeScript</span>.
+              <span className="skill-name">TypeScript</span>,
+              <i className="fab fa-cuttlefish" style={{ color: "#61DAFB" }}></i>{" "}
+              <span className="skill-name">C++</span>.
             </span>
           </li>
         </ul>
       </div>
       <div className="centered-image">
-          <img className="responsive-image"src={codingimage2} alt="Gift"  />
-        </div>
+        <img className="responsive-image" src={codingimage2} alt="Gift" />
+      </div>
     </div>
   );
 }
