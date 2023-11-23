@@ -1,9 +1,9 @@
-import React from "react";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import EmailIcon from "@material-ui/icons/Email";
 import GithubIcon from "@material-ui/icons/GitHub";
 import codingimage from "../assets/animation.gif";
 import codingimage2 from "../assets/codeimage.gif";
+import { TypeAnimation } from "react-type-animation";
 
 import "../styles/Home.css";
 
@@ -11,10 +11,34 @@ function Home() {
   const linkedinUrl = "https://www.linkedin.com/in/robertjguzman/";
   const githubUrl = "https://github.com/Robertguzmanny?tab=repositories";
   const emailurl = "mailto:robert.guzman3@lc.cuny.edu";
+
   return (
     <div className="home">
       <div className="about">
         <h2> Hey there! I am Robert J. Guzman</h2>
+        <h3 className="animated-text">
+          <TypeAnimation
+            sequence={[
+              "Computer Science",
+              500,
+              "Software Engineer",
+              500,
+              "Software Developer",
+              500,
+              "Web Devloper",
+              500,
+              "Project Manager",
+              500,
+              "Android Developer",
+              500,
+              "Databases",
+              500
+            ]}
+            style={{ fontSize: "2em" }}
+            repeat={Infinity}
+          />
+        </h3>
+
         <div className="prompt">
           <p>Below are my Tech stack and Technologies</p>
           <a href={linkedinUrl} target="_blank" rel="noopener noreferrer">

@@ -159,12 +159,13 @@
 
 
 
-/* Media query for smaller screens (e.g., mobile devices) */
-@media screen and (max-width: 480px) {
-  .responsive-image {
-    max-width: 100%; /* Adjust the width as needed for smaller screens */
-  }
+.animated-text {
+  font-size: 1.5em;
+  text-align: center;
 }
 
-
-
+@media (max-width: 600px) {
+  .animated-text {
+    font-size: 1em; /* Adjust this value for smaller screens */
+  }
+}
