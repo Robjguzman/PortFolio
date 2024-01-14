@@ -25,7 +25,7 @@ function Home() {
               500,
               "Software Developer",
               500,
-              "Web Devloper",
+              "Web Developer",
               500,
               "Project Manager",
               500,
@@ -40,7 +40,7 @@ function Home() {
         </h3>
 
         <div className="prompt">
-          <p>Below are my Tech stack and Technologies</p>
+          <p>Below is my Tech stack and Technologies</p>
           <a href={linkedinUrl} target="_blank" rel="noopener noreferrer">
             <LinkedInIcon />
           </a>
