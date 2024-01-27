@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { collection, addDoc, Timestamp } from "firebase/firestore";
-import db from '../helpers/firebase'; // Adjust path as necessary
+import db from "../helpers/firebase"; // Adjust path as necessary
 import "../styles/Contact.css";
 
+// backend api
 function Contact() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -20,24 +21,27 @@ function Contact() {
         name,
         email,
         message,
-        createdAt: Timestamp.now() // Adds current date and time
+        createdAt: Timestamp.now(), // Adds current date and time
       });
 
       console.log(`Message saved to Firestore with ID: ${docRef.id}`, {
         name,
         email,
         message,
-        createdAt: Timestamp.now().toDate() // Log the date in a readable format
+        createdAt: Timestamp.now().toDate(), // Log the date in a readable format
       });
 
       // Send the same data to your Express server
-      const response = await fetch('https://sparkling-teal-cowboy-boots.cyclic.app/api/messages', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ name, email, message })
-      });
+      const response = await fetch(
+        "https://sparkling-teal-cowboy-boots.cyclic.app/api/messages",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ name, email, message }),
+        }
+      );
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -45,9 +49,9 @@ function Contact() {
 
       setIsSubmitted(true);
       // Clear the form fields
-      setName('');
-      setEmail('');
-      setMessage('');
+      setName("");
+      setEmail("");
+      setMessage("");
     } catch (error) {
       console.error("Error:", error);
     }
@@ -63,7 +67,10 @@ function Contact() {
     <div className="contact-page">
       <div className="contact-container">
         <h1>Contact Me</h1>
-        <p>Have any questions? Or just want to connect, please don't hesitate to get in touch!</p>
+        <p>
+          Have any questions? Or just want to connect, please don't hesitate to
+          get in touch!
+        </p>
         {isSubmitted ? (
           <div className="thank-you">
             <h2>Thank You!</h2>

@@ -1,155 +1,95 @@
 /* About.css */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
-/* Apply styles only to elements within the #about-container */
-#about-container * {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+/* Reset and font */
+
+
+/* Main container */
+#about-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 80px;
+  background-color: #f5f5f5; /* Light background */
 }
 
+/* About section with flex */
 #about-section {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  padding: 20px 12%;
+  align-items: center;
   background-color: white;
-  margin-top: 40px;
+  padding: 60px;
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  max-width: 1200px; /* Max width of the container */
 }
 
+/* Image styling */
 .about-left img {
-  width: 420px;
+  width: 400px; /* Adjust width as necessary */
   height: auto;
-  margin-top: 20px;
   border-radius: 10px;
-  margin-right: 40px;
 }
 
+/* Text section */
 .about-right {
-  width: 54%;
-  margin-bottom: 20px;
-  margin-right: 40px; /* Added margin to the right side */
+  max-width: 60%; /* Max width of the text section */
+  margin-left: 40px; /* Space between image and text */
 }
 
-.about-right h1 {
-  color: #3d3522;
-  font-size: 32px;
-  margin-bottom: 20px;
+/* Headings */
+.about-right h1,
+.about-right h2 {
+  color: #333; /* Dark text for headings */
+  margin-bottom: 24px; /* Space below headings */
 }
 
+/* Paragraphs */
 .about-right p {
-  color: #4d4d4d;
-  line-height: 2.0;
-  font-size: 16px;
-  margin-bottom: 20px;
-  text-align: justify;
+  color: #666; /* Slightly lighter text for paragraphs */
+  line-height: 1.6; /* Line height for readability */
+  font-size: 16px; /* Font size for paragraphs */
+  margin-bottom: 20px; /* Space below paragraphs */
+  text-align: justify; /* Justify text for a clean look */
 }
 
-
-.interests-hobbies h2,
-.goals h2 {
-  font-size: 24px;
-  color: #3d3522;
-  margin-bottom: 30px; /* Increased margin-bottom for more separation */
-}
-
-.interests-hobbies p,
-.goals p {
-  color: #4d4d33;
-  line-height: 2.0; /* Adjusted line-height for more space */
-  font-size: 16px;
-  margin-bottom: 20px; /* Increased margin-bottom for more separation */
-}
-
-/* Media Queries for responsiveness */
-@media only screen and (max-width: 768px) {
-  #about-section {
-    flex-direction: column;
-    padding: 40px 5%;
-  }
-
-  .about-left img {
-    width: 100%;
-    margin-top: 0;
-  }
-
-  .about-right {
-    width: 100%;
-    margin-bottom: 20px;
-    margin-right: 0; /* Removed margin-right for smaller screens */
-  }
-
-  .about-right h1 {
-    font-size: 28px;
-    margin-bottom: 15px; /* Adjusted margin-bottom for more separation */
-  }
-
-  .about-right p {
-    font-size: 14px;
-  }
-}
-
+/* Resume button */
 .resume-button {
-  border: none;
-  font-size: 1rem;
-  text-transform: uppercase;
-  border: 2px solid #000;
-  border-radius: 20px;
-  padding: 0.5rem 1rem;
-  width: 130px;
-  font-weight: 600;
-  margin: 6rem 1rem;
-  cursor: pointer;
-  transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
-}
-
-.resume-button.resume-button {
-  background: black;
+  background-color: #000;
   color: #fff;
-  border-color: #020001;
+  padding: 12px 24px;
+  font-weight: 600;
+  font-size: 16px; /* Font size for button text */
+  border: none;
+  border-radius: 25px; /* Rounded corners for button */
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.resume-button.resume-button:hover {
-  background: transparent;
-  border-color: black;
-  color: #000;
+.resume-button:hover {
+  background-color: #555; /* Darken button on hover */
+  color: #fff;
 }
 
-/* Media Queries for responsiveness */
+/* Responsiveness */
 @media only screen and (max-width: 768px) {
+  #about-container {
+    padding: 20px;
+  }
+
   #about-section {
     flex-direction: column;
-    padding: 40px 5%;
-    height: auto; /* Allow the container to grow with content */
+    padding: 40px;
   }
 
   .about-left img {
     width: 100%;
-    margin-top: 0;
+    margin-bottom: 30px; /* Space between image and text on mobile */
   }
 
   .about-right {
-    width: 100%;
-    margin-bottom: 20px;
-    margin-right: 0; /* Removed margin-right for smaller screens */
-  }
-
-  .about-right h1 {
-    font-size: 28px;
-    margin-bottom: 15px; /* Adjusted margin-bottom for more separation */
-  }
-
-  .about-right p {
-    font-size: 14px;
-  }
-  
-  #about-section {
-    height: auto; /* Allow the container to grow with content */
-  }
-
-  .resume-button {
-    margin: 2rem 1rem; /* Adjusted margin for smaller screens */
+    max-width: 100%;
+    margin-left: 0;
   }
 }
-
