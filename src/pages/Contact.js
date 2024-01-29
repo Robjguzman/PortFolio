@@ -14,39 +14,36 @@ function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true); // Start loading
-
+  
     try {
-      // Add a new document in collection "messages"
-      const docRef = await addDoc(collection(db, "messages"), {
+      const messageData = {
         name,
         email,
         message,
-        createdAt: Timestamp.now(), // Adds current date and time
-      });
-
-      console.log(`Message saved to Firestore with ID: ${docRef.id}`, {
-        name,
-        email,
-        message,
-        createdAt: Timestamp.now().toDate(), // Log the date in a readable format
-      });
-
-      // Send the same data to your Express server
-      const response = await fetch(
+        createdAt: Timestamp.now(),
+      };
+  
+      // Perform Firestore and Express server calls concurrently
+      const firestorePromise = addDoc(collection(db, "messages"), messageData);
+      const serverPromise = fetch(
         "https://sparkling-teal-cowboy-boots.cyclic.app/api/messages",
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ name, email, message }),
+          body: JSON.stringify(messageData),
         }
       );
-
+  
+      const [docRef, response] = await Promise.all([firestorePromise, serverPromise]);
+  
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
-
+  
+      console.log(`Message saved to Firestore with ID: ${docRef.id}`, messageData);
+  
       setIsSubmitted(true);
       // Clear the form fields
       setName("");
@@ -55,9 +52,10 @@ function Contact() {
     } catch (error) {
       console.error("Error:", error);
     }
-
+  
     setIsLoading(false); // Stop loading
   };
+  
 
   const handleRetry = () => {
     setIsSubmitted(false);
