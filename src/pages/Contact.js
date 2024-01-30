@@ -8,15 +8,13 @@ function Contact() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false); // State variable for loading
+  const [error, setError] = useState(""); // State variable for error handling
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (isLoading) return; // Prevents multiple submissions
     setIsLoading(true);
-    setError("");
-    setIsSubmitted(true); // Optimistic UI Update
+    setError(""); // Reset error message
 
     try {
       const messageData = {
@@ -25,34 +23,37 @@ function Contact() {
         message,
         createdAt: Timestamp.now(),
       };
-
-      // Perform Firestore and Express server calls concurrently
+  
       const firestorePromise = addDoc(collection(db, "messages"), messageData);
-      const serverPromise = fetch("https://sparkling-teal-cowboy-boots.cyclic.app/api/messages", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(messageData),
-      });
-
+      const serverPromise = fetch(
+        "https://sparkling-teal-cowboy-boots.cyclic.app/api/messages",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(messageData),
+        }
+      );
+  
       const [docRef, response] = await Promise.all([firestorePromise, serverPromise]);
-
+  
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
-
+  
       console.log(`Message saved to Firestore with ID: ${docRef.id}`, messageData);
+  
+      setIsSubmitted(true);
+      setName("");
+      setEmail("");
+      setMessage("");
     } catch (error) {
       console.error("Error:", error);
       setError("Failed to send message. Please try again.");
-      setIsSubmitted(false); // Reset submission state on error
     }
-
+  
     setIsLoading(false);
-    setName("");
-    setEmail("");
-    setMessage("");
   };
 
   const handleRetry = () => {
