@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import { collection, addDoc, Timestamp } from "firebase/firestore";
-import db from "../helpers/firebase";
 import "../styles/Contact.css";
 
 function Contact() {
@@ -15,15 +13,6 @@ function Contact() {
     setIsLoading(true);
 
     try {
-      const docRef = await addDoc(collection(db, "messages"), {
-        name,
-        email,
-        message,
-        createdAt: Timestamp.now(),
-      });
-
-      console.log(`Message saved to Firestore with ID: ${docRef.id}`);
-
       const response = await fetch(
         "https://sparkling-teal-cowboy-boots.cyclic.app/api/messages",
         {
@@ -40,7 +29,7 @@ function Contact() {
       }
 
       const responseData = await response.json();
-      console.log('Server response', responseData);
+      console.log("Server response", responseData);
 
       setIsSubmitted(true);
       setName("");
@@ -61,7 +50,10 @@ function Contact() {
     <div className="contact-page">
       <div className="contact-container">
         <h1>Contact Me</h1>
-        <p>Have any questions? Or just want to connect, please don't hesitate to get in touch!</p>
+        <p>
+          Have any questions? Or just want to connect, please don't hesitate to
+          get in touch!
+        </p>
         {isSubmitted ? (
           <div className="thank-you">
             <h2>Thank You!</h2>
@@ -116,10 +108,20 @@ function Contact() {
           </form>
         )}
         <div className="social-links">
-          <a href="https://www.linkedin.com/in/robertjguzman/" target="_blank" rel="noopener noreferrer" className="social-link">
+          <a
+            href="https://www.linkedin.com/in/robertjguzman/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="social-link"
+          >
             <i className="fab fa-linkedin"></i>
           </a>
-          <a href="https://github.com/Robertguzmanny" target="_blank" rel="noopener noreferrer" className="social-link">
+          <a
+            href="https://github.com/Robertguzmanny"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="social-link"
+          >
             <i className="fab fa-github"></i>
           </a>
         </div>
