@@ -1,8 +1,4 @@
-/* About.css */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
-
-/* Reset and font */
-
 
 /* Main container */
 #about-container {
@@ -11,6 +7,13 @@
   align-items: center;
   padding: 40px 80px;
   background-color: #f5f5f5; /* Light background */
+  animation: fadeIn 1s ease; /* Fade-in animation for the container */
+}
+
+/* Fade-in keyframes */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 /* About section with flex */
@@ -23,6 +26,11 @@
   border-radius: 10px; /* Rounded corners */
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Soft shadow */
   max-width: 1200px; /* Max width of the container */
+  transition: transform 0.3s ease; /* Smooth transform on hover */
+}
+
+#about-section:hover {
+  transform: scale(1.03); /* Slightly scale up on hover */
 }
 
 /* Image styling */
@@ -30,12 +38,26 @@
   width: 400px; /* Adjust width as necessary */
   height: auto;
   border-radius: 10px;
+  animation: slideInLeft 1s ease; /* Slide-in animation for the image */
+}
+
+/* Slide-in from left keyframes */
+@keyframes slideInLeft {
+  from { transform: translateX(-50px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
 }
 
 /* Text section */
 .about-right {
   max-width: 60%; /* Max width of the text section */
   margin-left: 40px; /* Space between image and text */
+  animation: slideInRight 1s ease; /* Slide-in animation for the text */
+}
+
+/* Slide-in from right keyframes */
+@keyframes slideInRight {
+  from { transform: translateX(50px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
 }
 
 /* Headings */

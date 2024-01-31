@@ -1,37 +1,29 @@
 import React, { useState } from "react";
 import { collection, addDoc, Timestamp } from "firebase/firestore";
-import db from "../helpers/firebase"; // Adjust path as necessary
+import db from "../helpers/firebase";
 import "../styles/Contact.css";
 
-// backend api
 function Contact() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isLoading, setIsLoading] = useState(false); // New state variable for loading
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsLoading(true); // Start loading
+    setIsLoading(true);
 
     try {
-      // Add a new document in collection "messages"
       const docRef = await addDoc(collection(db, "messages"), {
         name,
         email,
         message,
-        createdAt: Timestamp.now(), // Adds current date and time
+        createdAt: Timestamp.now(),
       });
 
-      console.log(`Message saved to Firestore with ID: ${docRef.id}`, {
-        name,
-        email,
-        message,
-        createdAt: Timestamp.now().toDate(), // Log the date in a readable format
-      });
+      console.log(`Message saved to Firestore with ID: ${docRef.id}`);
 
-      // Send the same data to your Express server
       const response = await fetch(
         "https://sparkling-teal-cowboy-boots.cyclic.app/api/messages",
         {
@@ -47,8 +39,10 @@ function Contact() {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
+      const responseData = await response.json();
+      console.log('Server response', responseData);
+
       setIsSubmitted(true);
-      // Clear the form fields
       setName("");
       setEmail("");
       setMessage("");
@@ -56,7 +50,7 @@ function Contact() {
       console.error("Error:", error);
     }
 
-    setIsLoading(false); // Stop loading
+    setIsLoading(false);
   };
 
   const handleRetry = () => {
@@ -67,10 +61,7 @@ function Contact() {
     <div className="contact-page">
       <div className="contact-container">
         <h1>Contact Me</h1>
-        <p>
-          Have any questions? Or just want to connect, please don't hesitate to
-          get in touch!
-        </p>
+        <p>Have any questions? Or just want to connect, please don't hesitate to get in touch!</p>
         {isSubmitted ? (
           <div className="thank-you">
             <h2>Thank You!</h2>
@@ -117,13 +108,21 @@ function Contact() {
             </div>
             <div className="form-group">
               {isLoading ? (
-                <div className="spinner"></div> // Display spinner when loading
+                <div className="spinner"></div>
               ) : (
-                <button type="submit">Submit</button> // Normal submit button
+                <button type="submit">Submit</button>
               )}
             </div>
           </form>
         )}
+        <div className="social-links">
+          <a href="https://www.linkedin.com/in/robertjguzman/" target="_blank" rel="noopener noreferrer" className="social-link">
+            <i className="fab fa-linkedin"></i>
+          </a>
+          <a href="https://github.com/Robertguzmanny" target="_blank" rel="noopener noreferrer" className="social-link">
+            <i className="fab fa-github"></i>
+          </a>
+        </div>
       </div>
     </div>
   );
