@@ -95,23 +95,67 @@
 }
 
 /* Responsiveness */
+/* Responsiveness */
 @media only screen and (max-width: 768px) {
   #about-container {
-    padding: 20px;
+    padding: 20px; /* Reduced padding for smaller screens */
   }
 
   #about-section {
     flex-direction: column;
-    padding: 40px;
+    padding: 20px; /* Reduced padding inside the about section for a tighter look */
   }
 
   .about-left img {
-    width: 100%;
-    margin-bottom: 30px; /* Space between image and text on mobile */
+    width: 100%; /* Full width for the image to utilize available screen space */
+    margin-bottom: 20px; /* Reduced margin below the image to tighten up space */
   }
 
   .about-right {
     max-width: 100%;
-    margin-left: 0;
+    margin: 0; /* Reset margin to ensure text block uses available width effectively */
+    padding: 0 10px; /* Add padding to ensure text doesn't touch the edges */
+  }
+
+  .about-right h1,
+  .about-right h2,
+  .about-right p {
+    /* Text alignment remains the same but consider reducing font size if needed */
+    font-size: 14px; /* Optional: Adjust font size for headings and paragraphs on small screens */
+    margin-bottom: 15px; /* Adjust spacing between text elements */
+  }
+
+  .resume-button {
+    margin-top: 20px; /* Ensure there's sufficient space above the button */
+  }
+}
+/* Adjustments for iPad screen sizes */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  #about-container {
+    padding: 20px 40px; /* Adjust padding for iPad screen sizes */
+  }
+
+  #about-section {
+    flex-direction: column; /* Stack elements vertically on iPads */
+    padding: 40px; /* Adjust padding for a tighter layout on iPads */
+  }
+
+  .about-left img {
+    width: 80%; /* Adjust image width to better fit iPad screens */
+    margin: 0 auto 30px; /* Center image and add space below it */
+  }
+
+  .about-right {
+    max-width: 100%; /* Allow text section to fill the width on iPads */
+    margin-left: 0; /* Remove margin since image is now above text */
+    text-align: center; /* Center-align text for better readability on iPads */
+  }
+
+  .about-right h1,
+  .about-right h2,
+  .about-right p {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 90%; /* Constrain text width for better readability on iPads */
   }
 }
