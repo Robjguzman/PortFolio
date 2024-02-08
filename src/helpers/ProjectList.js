@@ -8,6 +8,8 @@ import Proj7 from "../assets/pygame.png";
 import Proj8 from "../assets/CSlab.png";
 import Proj9 from "../assets/todo-app.png";
 import Proj10 from "../assets/mylinks.png";
+import Proj11 from "../assets/weather-app.png"
+import Proj12 from "../assets/mp3player.png"
 
 export const ProjectList = [
   {
@@ -111,4 +113,25 @@ export const ProjectList = [
       "The main goal of this project, which utilizes skills in React.js, Express.js, MySQL, JavaScript, HTML, and CSS, is to develop a full-stack web application aimed at enhancing involvement in full-stack development by creating a platform for users to save and manage their favorite links within a PostgreSQL database.",
     github: "https://github.com/Robertguzmanny/My_Fav_Links",
   },
+  {
+    name: "Weather App",
+    image: Proj11,
+    skills: "Java, GUI, API",
+    description:
+      "This Java-based weather application harnesses the power of its comprehensive API to deliver personalized weather insights and trends directly to users, enhancing their daily planning and decision-making with precision.",
+    projectRole:
+      " Our weather app, developed in Java, offers real-time weather updates and forecasts through a robust API, enabling seamless integration with various platforms. By leveraging accurate and up-to-date meteorological data, users can easily access weather conditions, predictions, and alerts, ensuring they stay informed about the environment around them.",
+    github: "https://github.com/Robertguzmanny/Java-Weather-App",
+  },
+  {
+    name: "Mp3 Player",
+    image: Proj12,
+    skills: "Java, GUI, Swing",
+    description:
+      "TCreating an MP3 Music Player in Java Overview Dive into the fascinating world of programming by creating your own MP3 Music Player with Java! ",
+    projectRole:
+      " JDK 18 or above: Ensures you're using the latest Java features. Mp3Magic: A Java library designed for reading MP3 files and editing their ID3 tags. JLayer: A versatile MP3 decoder/player/converter library for Java applications.",
+    github: "https://github.com/Robertguzmanny/Java-mp3-player",
+  },
+
 ];
