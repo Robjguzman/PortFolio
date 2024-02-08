@@ -10,7 +10,7 @@ This portfolio website, built using React, showcases my personal and professiona
 ![App Screenshot](./src/assets/portfolio.png)
 
 
-## Tech Stack
+## Tech Stack 💻
 
 **Client:** React, Yarn, Material UI, Icons
 
