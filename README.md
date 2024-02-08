@@ -7,7 +7,7 @@ This portfolio website, built using React, showcases my personal and professiona
 
 ## Portfolio
 
-![App Screenshot](../assets/portfolio.png)
+![App Screenshot](./assets/portfolio.png)
 
 
 ## Tech Stack
