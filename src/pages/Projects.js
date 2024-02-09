@@ -13,6 +13,9 @@ function Projects() {
   };
 
   return (
+    <div id="projects">
+
+    
     <div className="projects">
       <h1> My Personal Projects</h1>
       <div className="projectList">
@@ -28,6 +31,7 @@ function Projects() {
           );
         })}
       </div>
+    </div>
     </div>
   );
 }

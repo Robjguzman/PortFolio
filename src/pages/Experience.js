@@ -33,6 +33,7 @@ function Experience() {
   };
 
   return (
+    <div id="experience">
     <div className="experience">
       <VerticalTimeline lineColor="black">
         <VerticalTimelineElement
@@ -74,7 +75,7 @@ function Experience() {
 
         <VerticalTimelineElement
           className="vertical-timeline-element--education"
-          date="Jan 2022 - Expected Fall 2023"
+          date="Jan 2022 - Graduated Fall 2023"
           iconStyle={{ background: "black", color: "#fff" }}
           icon={<SchoolIcon />}
         >
@@ -193,6 +194,7 @@ function Experience() {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 }

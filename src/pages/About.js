@@ -9,6 +9,9 @@ function About() {
   };
 
   return (
+    <div id="about">
+
+    
     <div id="about-container">
       <section id="about-section">
         {/* About left */}
@@ -59,6 +62,7 @@ function About() {
           </button>
         </div>
       </section>
+    </div>
     </div>
   );
 }

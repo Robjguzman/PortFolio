@@ -13,6 +13,7 @@ function Home() {
   const emailurl = "mailto:robert.guzman3@lc.cuny.edu";
 
   return (
+    <div id="home">
     <div className="home">
       <div className="about">
         <h2> Hey there! I am Robert J. Guzman</h2>
@@ -149,6 +150,7 @@ function Home() {
       <div className="centered-image">
         <img className="responsive-image" src={codingimage2} alt="Gift" />
       </div>
+    </div>
     </div>
   );
 }

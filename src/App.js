@@ -29,3 +29,27 @@ function App() {
 }
 
 export default App;
+
+
+
+// function App() {
+//   return (
+//     <Router>
+//       <div className="App">
+//         <Navbar />
+//         {/* Directly include the components without Routes */}
+//         <main>
+//           <Home />
+//           <AboutMe />
+//           <Projects />
+//           <Experience />
+//           <Contact />
+          
+//         </main>
+//         <Footer />
+//       </div>
+//     </Router>
+//   );
+// }
+
+// export default App;

@@ -39,3 +39,34 @@ function Navbar() {
 }
 
 export default Navbar;
+
+// import React, { useState } from "react";
+// import "../styles/Navbar.css";
+// import ReorderIcon from "@material-ui/icons/Reorder";
+
+// function Navbar() {
+//   const [expandNavbar, setExpandNavbar] = useState(false);
+
+//   return (
+//     <div className="navbar" id={expandNavbar ? "open" : "close"}>
+//       <div className="toggleButton">
+//         <button
+//           onClick={() => {
+//             setExpandNavbar((prev) => !prev);
+//           }}
+//         >
+//           <ReorderIcon />
+//         </button>
+//       </div>
+//       <div className="links">
+//         <a href="#home">Home</a>
+//         <a href="#about">About</a>
+//         <a href="#projects">Projects</a>
+//         <a href="#experience">Experience</a>
+//         <a href="#contact">Contact</a>
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default Navbar;
