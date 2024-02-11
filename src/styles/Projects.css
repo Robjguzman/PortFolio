@@ -72,3 +72,23 @@
     height: 300px;
   }
 }
+
+
+.projects {
+  margin-top: 120px; /* Increased from 10% to a fixed pixel value for better control */
+  /* Other styles... */
+}
+
+/* If the .experience class has a direct child that serves as a section header or similar, you can add padding-top to it as well */
+.projects > :first-child {
+  padding-top: 120px; /* This adds space at the top inside the first element of .experience */
+}
+
+/* Since you have a sticky navbar, ensure that the top margin is at least as tall as the navbar itself */
+@media screen and (max-width: 768px) {
+  .projects {
+    margin-top: 100px; /* You can adjust this for smaller screens if your navbar height changes */
+  }
+}
+
+/* Continue with the rest of your existing styles... */

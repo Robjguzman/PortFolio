@@ -1,10 +1,13 @@
 .home {
   width: 100%;
+  height: 100%;
   align-items: center;
   font-family: "Arial", sans-serif;
   color: black;
+  margin-top: 15%;
   
 }
+
 
 .about {
   width: 100%;
@@ -14,7 +17,6 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-color: beige;
   background-position: fill;
   color: black;
 }
@@ -147,10 +149,30 @@
 }
 
 .centered-image {
-  margin-top: 10%;
   display: flex;
   justify-content: center;
   align-items: center;
+  /* margin-top: -20%; */
+  
+}
+
+@media (max-width: 480px){
+  .centered-image{
+    margin-top: 10vh;
+  }
+}
+
+@media (max-width: 768px){
+  .centered-image{
+    margin-top: 10vh;
+  }
+}
+
+.centered-image2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
 }
 
 .responsive-image {
@@ -173,4 +195,20 @@
   }
 }
 
+.home {
+  margin-top: 100px; /* Increased from 10% to a fixed pixel value for better control */
+  /* Other styles... */
+}
+
+/* If the .experience class has a direct child that serves as a section header or similar, you can add padding-top to it as well */
+.home > :first-child {
+  padding-top: 100px; /* This adds space at the top inside the first element of .experience */
+}
+
+/* Since you have a sticky navbar, ensure that the top margin is at least as tall as the navbar itself */
+@media screen and (max-width: 768px) {
+  .home {
+    margin-top: 100px; /* You can adjust this for smaller screens if your navbar height changes */
+  }
+}
 

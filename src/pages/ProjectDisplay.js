@@ -1,78 +1,44 @@
-import React, { useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import ReactDOM from 'react-dom';
 import { ProjectList } from "../helpers/ProjectList";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import "../styles/ProjectDisplay.css";
+import "../styles/Modal.css"; // Ensure you have styles for the modal
 
-function ProjectDisplay() {
-  const { id } = useParams();
-  const projectId = parseInt(id, 10); // Parse as an integer
+function ProjectDisplay({ onClose, projectId }) {
   const project = ProjectList[projectId];
 
   useEffect(() => {
-    // Scroll to the top of the page when the component mounts
-    window.scrollTo(0, 0);
+    // Prevent scrolling on the background page
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
   }, []);
 
-  const prevProjectId = projectId > 0 ? projectId - 1 : null;
-  const nextProjectId =
-    projectId < ProjectList.length - 1 ? projectId + 1 : null;
+  if (!project) return null;
 
-  const handlePrevClick = () => {
-    // Scroll to the top of the page when "Previous" is clicked
-    window.scrollTo(0, 0);
-  };
+  return ReactDOM.createPortal((
+    <div className="modal-overlay">
+      <div className="modal-content">
+        <button className="modal-close" onClick={onClose}>×</button>
+        <h1>{project.name}</h1>
+        <div className="project-image">
 
-  const handleBackClick = () => {
-    // Scroll to the top of the page when "Back to Projects" is clicked
-    window.scrollTo(0, 0);
-  };
+        <img src={project.image} alt={project.name} />
 
-  return (
-    <div className="project">
-      <h1>{project.name}</h1>
-
-      <img src={project.image} alt={project.name} />
-
-      <div className="Inside-Content">
-        <p>
-          <b>Skills:</b> {project.skills}
-        </p>
-        <p>
-          <b>Description:</b> {project.description}
-        </p>
-        <p>
-          <b>Main Purpose:</b> {project.projectRole}
-        </p>
-      </div>
-
-      <a href={project.github} target="_blank" rel="noopener noreferrer">
-        <GitHubIcon className="Github" />
-      </a>
-
-      {/* Navigation buttons at the bottom */}
-      <div className="navigation-container">
-        <div className="navigation-buttons">
-          {prevProjectId !== null && (
-            <Link to={`/project/${prevProjectId}`} onClick={handleBackClick}>
-              <button id="prev">Previous Project</button>
-            </Link>
-          )}
-
-          <Link to="/projects">
-            <button id="back" onClick={handleBackClick}>
-              Back to Projects
-            </button>
-          </Link>
-          {nextProjectId !== null && (
-            <Link to={`/project/${nextProjectId}`} onClick={handlePrevClick}>
-              <button id="next">Next Project</button>
-            </Link>
-          )}
         </div>
+        <div className="Inside-Content">
+          <p><b>Skills:</b> {project.skills}</p>
+          <p><b>Description:</b> {project.description}</p>
+          <p><b>Main Purpose:</b> {project.projectRole}</p>
+        </div>
+        <a href={project.github} target="_blank" rel="noopener noreferrer">
+          <GitHubIcon className="Github" />
+        </a>
       </div>
     </div>
-  );
+  ), document.body);
 }
 
 export default ProjectDisplay;

@@ -13,7 +13,7 @@ import Proj12 from "../assets/mp3player.png"
 
 export const ProjectList = [
   {
-    name: "Foodie Android APP",
+    name: "Foodie APP",
     image: Proj1,
     skills: "Android Development, Java, XML.",
     "Project Role": "",
@@ -24,7 +24,7 @@ export const ProjectList = [
     github: "https://github.com/Robertguzmanny/Mini-Android-Project",
   },
   {
-    name: "Josefina Body Lotion",
+    name: "Lotion Website",
     image: Proj2,
     skills: "HTML, CSS, BootStrap.",
     projectRole:
@@ -55,7 +55,7 @@ export const ProjectList = [
     github: "https://github.com/Robertguzmanny/Mobile-Dev-App/tree/master",
   },
   {
-    name: "Attendance Tracking System",
+    name: "ATS",
     image: Proj5,
     skills: "TypeScript, HTML, CSS, Ionic, Angular.",
     description:
@@ -84,7 +84,7 @@ export const ProjectList = [
     github: "https://github.com/Robertguzmanny/Python-Game",
   },
   {
-    name: "Computer Science Lab",
+    name: "Computer Lab",
     image: Proj8,
     skills: "MySQL, Relational Dtabases (Schemas, Diagrams, Tables.)",
     description:

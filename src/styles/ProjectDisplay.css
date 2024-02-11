@@ -17,12 +17,23 @@
   font-size: 4.5vw; /* Responsive font size */
 }
 
-.project img {
-  width: 70%; /* Fixed width for consistent size */
-  max-height: 60vh; /* Fixed height for consistent size */
-  object-fit: contain; /* Ensure the entire image is displayed without distortion */
-  border-radius: 10px;
+.project-image img {
+  display: block; /* Remove any extra space below the image */
+  max-width: 100%; /* Make sure the image is not wider than the container */
+  max-height: 50vh; /* Optional: limit the height of the image */
+  object-fit: contain; /* Maintain aspect ratio without cropping the image */
+  margin: 0 auto; /* Center the image horizontally */
 }
+
+
+.modal-content {
+  padding: 20px;
+  max-width: 90%; /* Limit the width for larger screens */
+  max-height: 90vh; /* Limit the height so it doesn't touch the viewport's top and bottom */
+  box-sizing: border-box; /* Include padding in width and height calculations */
+}
+
+
 
 .Inside-Content {
   font-size: 16px; /* Default font size for non-vw-capable devices */
@@ -60,11 +71,12 @@
 }
 
 .Github {
-  width: 150px; /* Adjust the width to make the logo bigger */
+  align-items: center;
+  width: 100px; /* Adjust the width to make the logo bigger */
   height: auto; /* Maintain the aspect ratio */
 }
 
-/* Button.css */
+
 
 /* CSS for the navigation container */
 .navigation-container {
@@ -79,8 +91,7 @@
   align-items: right; /* Center vertically within the container */
 }
 
-/* Individual Button Styles */
-/* Button Styles */
+
 button {
   border: 2px solid #000;
   font-size: 0.9rem;
@@ -126,4 +137,37 @@ button {
   background: white;
   border: 2px solid black; /* Set border to 2px solid black on hover */
   color: black;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem; /* Space from the top */
+  right: 1rem; /* Space from the right */
+  background: none;
+  border: none;
+  font-size: 1.5rem; /* Large enough to be easily clickable */
+  cursor: pointer;
+  color: #000; /* Contrasting color */
+  z-index: 1100; /* Above other content */
+}
+
+.project h1, .project .skills, .project .description, .project .mainPurpose {
+  /* Remove or reduce margin and padding as needed */
+  margin: 0;
+  padding: 0.5rem 0; /* Example: consistent vertical padding with no horizontal margin */
+  text-align: left; /* Align text to the left */
+  /* ... other styles you might want to apply ... */
+}
+
+/* ... other styles ... */
+
+/* Apply media queries for responsiveness */
+@media (max-width: 768px) {
+  .modal-close {
+    font-size: 2rem; /* Larger size for better visibility on mobile */
+  }
+  /* Adjust text size for smaller devices */
+  .project h1, .project .skills, .project .description, .project .mainPurpose {
+    font-size: smaller; /* Adjust font size for smaller devices */
+  }
 }

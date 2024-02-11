@@ -11,12 +11,13 @@ import certificate from "../assets/bootcamp.png";
 import associate from "../assets/associate.png";
 import data from "../assets/R_certificate.png";
 import dean from "../assets/dean.jpeg";
+import dean2 from "../assets/dean-2023.png"
 import CyberSec from "../assets/CyberSec.png";
 import SwipeableViews from "react-swipeable-views";
 
 function Experience() {
   const [currentImage, setCurrentImage] = useState(0);
-  const images = [certificate, associate, dean, data, CyberSec];
+  const images = [certificate, associate, dean, dean2, data, CyberSec];
 
   const handleChangeIndex = (index) => {
     setCurrentImage(index);
@@ -170,7 +171,7 @@ function Experience() {
                 enableMouseEvents
               >
                 {images.map((image, index) => (
-                  <div key={index} className="image-container">
+                  <div key={index} className="image-container-experience">
                     <img
                       src={image}
                       alt={index === 0 ? "Certificate" : "Associate Degree"}

@@ -51,8 +51,10 @@ function Home() {
           <a href={githubUrl} target="_blank" rel="noopener noreferrer">
             <GithubIcon />
           </a>
+          <p>Check the rest of my page and enjoy!</p>
         </div>
       </div>
+      <div/>
       <div className="container">
         <div className="centered-image">
           <img className="responsive-image" src={codingimage} alt="Gift" />
@@ -147,12 +149,14 @@ function Home() {
           </li>
         </ul>
       </div>
-      <div className="centered-image">
+      <div className="centered-image2">
         <img className="responsive-image" src={codingimage2} alt="Gift" />
       </div>
-    </div>
+    
+      </div>
     </div>
   );
 }
 
 export default Home;
+
