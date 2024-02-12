@@ -71,10 +71,16 @@
 }
 
 .Github {
-  align-items: center;
-  width: 100px; /* Adjust the width to make the logo bigger */
+  display: flex; /* Use flexbox to center the logo */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  width: 2000px; /* Increase the width */
   height: auto; /* Maintain the aspect ratio */
+  fill: black; /* Change the color to black. Note: This works if the GitHub icon is an SVG. */
+  margin: 0 auto; /* Center the logo horizontally */
+  color: black; /* Change the color to black if it's a font icon */
 }
+
 
 
 

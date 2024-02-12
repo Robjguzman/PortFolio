@@ -34,7 +34,7 @@ function ProjectDisplay({ onClose, projectId }) {
           <p><b>Main Purpose:</b> {project.projectRole}</p>
         </div>
         <a href={project.github} target="_blank" rel="noopener noreferrer">
-          <GitHubIcon className="Github" />
+        <GitHubIcon style={{ fontSize: '3rem', color: 'black' }} />
         </a>
       </div>
     </div>
