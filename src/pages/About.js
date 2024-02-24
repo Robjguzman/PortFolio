@@ -25,7 +25,7 @@ function About() {
           <p>
             I am Robert Guzman, an aspiring Software Engineer with a diverse
             skill set encompassing both front-end and back-end technologies. I
-            am poised to graduate soon with a degree in Computer Science from
+            am a recent graduate with a degree in Computer Science from
             Lehman College.
           </p>
 
