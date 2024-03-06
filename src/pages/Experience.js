@@ -14,10 +14,11 @@ import dean from "../assets/dean.jpeg";
 import dean2 from "../assets/dean-2023.png";
 import CyberSec from "../assets/CyberSec.png";
 import SwipeableViews from "react-swipeable-views";
+import bachelors from "../assets/bachelors.png"
 
 function Experience() {
   const [currentImage, setCurrentImage] = useState(0);
-  const images = [certificate, associate, dean, dean2, data, CyberSec];
+  const images = [bachelors, associate, dean, dean2, certificate, data, CyberSec];
 
   const handleChangeIndex = (index) => {
     setCurrentImage(index);
