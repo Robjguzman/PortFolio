@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/about.css";
 import aboutImage from "../assets/Professional.png";
-import resume from "../assets/Robert_Guzman_Tech_Resume_2023.pdf";
+import resume from "../assets/Robert_Guzman_Tech_Resume_2024.pdf";
 
 function About() {
   const openResume = () => {
