@@ -4,7 +4,6 @@
   align-items: center;
   font-family: "Arial", sans-serif;
   color: black;
-  margin-top: 15%;
   
 }
 
@@ -19,10 +18,12 @@
   text-align: center;
   background-position: fill;
   color: black;
+  margin-top: -75px;
 }
 
 .about h2 {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva,
+   Verdana, sans-serif;
   font-size: 5vw; /* Increased font size for larger screens while maintaining one line */
   color: black;
   margin: 1% 0; /* Adjusted margin for better spacing */
