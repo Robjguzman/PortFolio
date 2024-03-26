@@ -8,7 +8,6 @@ import Footer from "./components/Footer";
 import ProjectDisplay from "./pages/ProjectDisplay";
 import AboutMe from "./pages/About";
 import Contact from "./pages/Contact";
-// Note: Make sure the Modal component is correctly imported from where it is located.
 import Modal from "./pages/Modal"; 
 
 function App() {
