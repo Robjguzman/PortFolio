@@ -13,6 +13,8 @@ function Home() {
   const emailurl = "mailto:robert.guzman3@lc.cuny.edu";
 
   return (
+  <div data-aos="fade-up left">
+
     <div id="home">
     <div className="home">
       <div className="about">
@@ -154,6 +156,7 @@ function Home() {
       </div>
     
       </div>
+    </div>
     </div>
   );
 }
