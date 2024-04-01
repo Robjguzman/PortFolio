@@ -11,4 +11,4 @@ This portfolio website, built using React, showcases my personal and professiona
 
 ## Tech Stack 💻
 
-**Client:** React, Yarn, Material UI, Icons, Express.JS Postgres.
+**Client:** React, Yarn, Material UI, Icons, Express.JS, Postgres.
