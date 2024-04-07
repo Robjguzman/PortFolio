@@ -3,6 +3,7 @@ import EmailIcon from "@material-ui/icons/Email";
 import GithubIcon from "@material-ui/icons/GitHub";
 import codingimage from "../assets/animation.gif";
 import codingimage2 from "../assets/codeimage.gif";
+import character_student from "../assets/character_student.gif"
 import { TypeAnimation } from "react-type-animation";
 
 import "../styles/Home.css";
@@ -17,6 +18,9 @@ function Home() {
 
     <div id="home">
     <div className="home">
+      <div className="welcome">
+        <img className="gif-image" src={character_student} alt="Character Image"/>
+      </div>
       <div className="about">
         <h2> Hey there! I am Robert J. Guzman</h2>
         <h3 className="animated-text">
