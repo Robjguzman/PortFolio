@@ -19,7 +19,7 @@ function Home() {
     <div id="home">
     <div className="home">
       <div className="welcome">
-        <img className="gif-image" src={character_student} alt="Character Image"/>
+        <img className="gif-image" src={character_student} alt="Character"/>
       </div>
       <div className="about">
         <h2> Hey there! I am Robert J. Guzman</h2>
