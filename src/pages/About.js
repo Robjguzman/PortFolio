@@ -21,7 +21,7 @@ function About() {
             <div className="about-right">
               <h1>My Story</h1>
               <p>
-                I am Robert Guzman, an aspiring Software Engineer with a diverse
+                I am Robert Guzman, an incoming Software Engineer with a diverse
                 skill set encompassing both front-end and back-end technologies.
                 I am a recent graduate with a degree in Computer Science from
                 Lehman College.
