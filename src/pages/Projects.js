@@ -14,7 +14,7 @@ function Projects({ onProjectClick }) {
         <h1> My Personal Projects</h1>
         <div className="projectList">
           {ProjectList.map((project, idx) => {
-            // Replace Link with div or button and handle the click event
+            // Render a ProjectItem component for each project
             return (
               <div
                 key={idx}

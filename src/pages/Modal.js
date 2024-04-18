@@ -17,7 +17,7 @@ const Modal = ({ children, onClose }) => {
         </div>
       </div>
     </div>,
-    document.getElementById("modal-root") // Ensure that a div with id="modal-root" is present in your index.html file
+    document.getElementById("modal-root") // This is where the modal will be rendered
   );
 };
 

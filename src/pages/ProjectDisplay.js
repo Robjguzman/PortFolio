@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { ProjectList } from "../helpers/ProjectList";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import "../styles/ProjectDisplay.css";
-import "../styles/Modal.css"; // Ensure you have styles for the modal
+import "../styles/Modal.css"; 
 
 function ProjectDisplay({ onClose, projectId }) {
   const project = ProjectList[projectId];
