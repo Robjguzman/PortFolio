@@ -19,7 +19,7 @@
 .image-container-experience {
   position: relative;
   max-width: 80%;
-  margin: 0 auto; /* Center the container horizontally */
+  margin: 50px auto; /* Center the container horizontally */
   padding: 20px; /* Add padding as needed */
   text-align: center; /* Center the child elements horizontally */
 }
