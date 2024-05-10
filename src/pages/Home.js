@@ -15,7 +15,6 @@ function Home() {
 
   return (
   <div data-aos="fade-up left">
-
     <div id="home">
     <div className="home">
       <div className="welcome">

@@ -7,16 +7,20 @@
   
 }
 .home .welcome {
-  width: 50%; /* or any other value */
-  margin: 0 auto; /* Center the welcome div */
-  
+  width: 50%; /* Adjust this value as needed */
+  margin: 0 auto; /* Center the welcome div horizontally */
+  display: flex;
+  justify-content: center; /* Center horizontally inside the .welcome */
+  align-items: center; /* Center vertically inside the .welcome */
+  flex-direction: column; /* Stack children elements vertically */
+  min-height: 100vh; /* Ensure it takes at least full viewport height */
+  gap: 20px; /* Adds space between the flex items */
 }
 
 .gif-image {
-  max-width: 40%; /* Make the image responsive */
+  max-width: 80%; /* Adjust width to reduce the size of the image */
   height: auto; /* Maintain aspect ratio */
 }
-
 
 .about {
   width: 100%;

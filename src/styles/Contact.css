@@ -17,6 +17,7 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin: auto; /* Center the container on the page */
   margin-top: 50px; /* Top margin for separation */
+  margin: 50px auto;
 }
 
 h1 {
