@@ -14,7 +14,7 @@ function Contact() {
 
     try {
       const response = await fetch(
-        "https://sparkling-teal-cowboy-boots.cyclic.app/api/messages",
+        "https://portfolio-backend-jet-phi.vercel.app/",
         {
           method: "POST",
           headers: {
