@@ -1,5 +1,5 @@
 {
-  "proxy": "https://sparkling-teal-cowboy-boots.cyclic.app",
+  "proxy": "https://portfolio-backend-jet-phi.vercel.app",
   "name": "portfolio",
   "version": "0.1.0",
   "private": true,

@@ -1,9 +1,11 @@
 {
   "files": {
-    "main.css": "/static/css/main.6cc0c392.css",
-    "main.js": "/static/js/main.4092be0d.js",
-    "static/js/787.7da95b79.chunk.js": "/static/js/787.7da95b79.chunk.js",
+    "main.css": "/static/css/main.7734c9fc.css",
+    "main.js": "/static/js/main.0ef4a9b4.js",
+    "static/js/453.ace21015.chunk.js": "/static/js/453.ace21015.chunk.js",
     "static/media/codeimage.gif": "/static/media/codeimage.ca5e6cae604b7e49440b.gif",
+    "static/media/character_student.gif": "/static/media/character_student.15a8a48bf35f99a47ed2.gif",
+    "static/media/bachelors.png": "/static/media/bachelors.bc86d847e2761541511f.png",
     "static/media/foodie-app.png": "/static/media/foodie-app.2f661c444902949be6e4.png",
     "static/media/Professional.png": "/static/media/Professional.4076d844386dbcee958a.png",
     "static/media/josefina.png": "/static/media/josefina.60321f1ab58499bb57be.png",
@@ -12,23 +14,26 @@
     "static/media/pygame.png": "/static/media/pygame.fe18613ec87508570569.png",
     "static/media/CSlab.png": "/static/media/CSlab.83df6c1aef7babf3a105.png",
     "static/media/bootcamp.png": "/static/media/bootcamp.a596e6693a0874aaee88.png",
-    "static/media/Robert_Guzman_Tech_Resume_2023.pdf": "/static/media/Robert_Guzman_Tech_Resume_2023.cd49e5e59361da3c07c0.pdf",
+    "static/media/dean-2023.png": "/static/media/dean-2023.137194bedc9550a89710.png",
+    "static/media/Robert_Guzman_Tech_Resume_2024.pdf": "/static/media/Robert_Guzman_Tech_Resume_2024.203d2c80ba7464a3d7af.pdf",
     "static/media/attendance.png": "/static/media/attendance.6112b25a254aaa050904.png",
+    "static/media/mp3player.png": "/static/media/mp3player.e96334173ecad51cf663.png",
     "static/media/CyberSec.png": "/static/media/CyberSec.63258305e16624a51f08.png",
     "static/media/R_certificate.png": "/static/media/R_certificate.8916e05f4e13b26b4eaf.png",
     "static/media/tipcaljava.png": "/static/media/tipcaljava.10da0a895e00a4ad9320.png",
     "static/media/androidd.png": "/static/media/androidd.9b48b69915c646dcc2c5.png",
     "static/media/dean.jpeg": "/static/media/dean.e0d2e9b9c319c08669da.jpeg",
+    "static/media/weather-app.png": "/static/media/weather-app.1f278f03636eb3f7a2a8.png",
     "static/media/todo-app.png": "/static/media/todo-app.e9c3a24e31595cf134f5.png",
     "static/media/guessgame.png": "/static/media/guessgame.0841e5c81da259cdbd05.png",
     "static/media/mylinks.png": "/static/media/mylinks.7611e0fd5020372fb158.png",
     "index.html": "/index.html",
-    "main.6cc0c392.css.map": "/static/css/main.6cc0c392.css.map",
-    "main.4092be0d.js.map": "/static/js/main.4092be0d.js.map",
-    "787.7da95b79.chunk.js.map": "/static/js/787.7da95b79.chunk.js.map"
+    "main.7734c9fc.css.map": "/static/css/main.7734c9fc.css.map",
+    "main.0ef4a9b4.js.map": "/static/js/main.0ef4a9b4.js.map",
+    "453.ace21015.chunk.js.map": "/static/js/453.ace21015.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6cc0c392.css",
-    "static/js/main.4092be0d.js"
+    "static/css/main.7734c9fc.css",
+    "static/js/main.0ef4a9b4.js"
   ]
 }
