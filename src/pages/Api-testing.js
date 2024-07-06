@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import '../styles/Api.css';
 
 function Api() {
@@ -6,20 +6,6 @@ function Api() {
     const [status, setStatus] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
-   
-
-    useEffect(() => {
-        fetchMessages();
-    }, []);
-
-    const fetchMessages = async () => {
-        try {
-            const res = await fetch('https://portfolio-backend-jet-phi.vercel.app/api/messages');
-            const data = await res.json();
-        } catch (err) {
-            console.error('Failed to fetch messages', err);
-        }
-    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -38,8 +24,6 @@ function Api() {
                 }
             );
 
-            fetchMessages(); // Refresh the messages after submission
-            
             // Clear form inputs
             setMessage('');
             setStatus('');
@@ -87,7 +71,6 @@ function Api() {
                     </form>
                     {error && <p className="error">{error}</p>}
                 </div>
-                
             </div>
         </div>
     );
