@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: white; /* Beige background */
+    background-color: white;
     padding: 20px;
     box-sizing: border-box;
 }
@@ -14,8 +14,9 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 30px;
     width: 100%;
-    max-width: 40%; /* Increased max width */
+    max-width: 600px;
     box-sizing: border-box;
+    text-align: center; /* Center text */
 }
 
 .api-container {
@@ -25,13 +26,13 @@
 .api-container h1 {
     color: black;
     margin-bottom: 20px;
-    font-size: 1.8em; /* Increased font size */
+    font-size: 1.8em;
 }
 
 .api-container p {
     color: black;
     margin-bottom: 30px;
-    font-size: 1.2em; /* Increased font size */
+    font-size: 1.2em;
 }
 
 .api-container form {
@@ -49,7 +50,7 @@
     color: black;
     margin-bottom: 5px;
     text-align: left;
-    font-size: 1em; /* Increased font size */
+    font-size: 1em;
 }
 
 .api-container input,
@@ -58,8 +59,8 @@
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
-    font-size: 1em; /* Increased font size */
+    box-sizing: border-box;
+    font-size: 1em;
 }
 
 .api-container button {
@@ -69,7 +70,7 @@
     background-color: black;
     color: white;
     cursor: pointer;
-    font-size: 1em; /* Increased font size */
+    font-size: 1em;
 }
 
 .api-container button:disabled {
@@ -84,7 +85,7 @@
 .api-container p.response {
     color: green;
     margin-top: 10px;
-    word-wrap: break-word; /* Ensure long responses break lines */
+    word-wrap: break-word;
 }
 
 .response-container {
@@ -95,6 +96,11 @@
 
 /* Media queries for responsiveness */
 @media (max-width: 600px) {
+    .api-page {
+        padding: 20px;
+        max-width: 100%; /* Full width on small screens */
+    }
+
     .api-container h1 {
         font-size: 1.5em;
     }

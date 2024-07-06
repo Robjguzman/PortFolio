@@ -43,6 +43,10 @@
   transition: background-color 0.3s ease-in-out; /* Smooth transition for background color */
 }
 
+/* Add hover effect for better interactivity */
+.links a:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
 
 /* Responsive navbar */
 @media (max-width: 768px) {
@@ -56,7 +60,7 @@
 
   .links {
     position: fixed;
-    top: 60px; /* Positioned right below the navbar */
+    top: 80px; /* Positioned right below the navbar */
     left: 0;
     right: 0;
     flex-direction: column;
@@ -69,9 +73,8 @@
   }
 
   .navbar.open .links {
-    max-height: 300px; /* Adjusted max-height */
+    max-height: 400px; /* Increased max-height */
   }
-
 
   .links a {
     padding: 15px;
@@ -82,5 +85,5 @@
 
 /* Padding at the top of the body to avoid overlap with fixed navbar */
 body {
-  padding-top: 60px;
+  padding-top: 80px;
 }
