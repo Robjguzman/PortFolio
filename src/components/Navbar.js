@@ -65,7 +65,7 @@ function Navbar() {
         <a href="#projects" onClick={toggleNavbar}>Projects</a>
         <a href="#experience" onClick={toggleNavbar}>Experience</a>
         <a href="#contact" onClick={toggleNavbar}>Contact</a>
-        <a href="#API-TESTING" onClick={toggleNavbar}>API-TESTING</a>
+        <a href="#API-TESTING" onClick={toggleNavbar}>API Test</a>
       </div>
     </nav>
   );

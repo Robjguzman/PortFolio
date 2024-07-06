@@ -17,7 +17,7 @@ function Footer() {
           <GitHubIcon />
         </a>
       </div>
-      <p> &copy; 2024 robguzman.netlify.app</p>
+      <p> &copy; 2024 robguzman.app</p>
     </div>
   );
 }
