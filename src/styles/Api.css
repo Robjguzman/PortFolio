@@ -1,0 +1,118 @@
+#api {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: white; /* Beige background */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.api-page {
+    background: beige;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 100%;
+    max-width: 40%; /* Increased max width */
+    box-sizing: border-box;
+}
+
+.api-container {
+    text-align: center;
+}
+
+.api-container h1 {
+    color: black;
+    margin-bottom: 20px;
+    font-size: 1.8em; /* Increased font size */
+}
+
+.api-container p {
+    color: black;
+    margin-bottom: 30px;
+    font-size: 1.2em; /* Increased font size */
+}
+
+.api-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.api-container form div {
+    margin-bottom: 15px;
+}
+
+.api-container label {
+    display: block;
+    color: black;
+    margin-bottom: 5px;
+    text-align: left;
+    font-size: 1em; /* Increased font size */
+}
+
+.api-container input,
+.api-container select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+    font-size: 1em; /* Increased font size */
+}
+
+.api-container button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    font-size: 1em; /* Increased font size */
+}
+
+.api-container button:disabled {
+    background-color: #999;
+}
+
+.api-container p.error {
+    color: red;
+    margin-top: 10px;
+}
+
+.api-container p.response {
+    color: green;
+    margin-top: 10px;
+    word-wrap: break-word; /* Ensure long responses break lines */
+}
+
+.response-container {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1em;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 600px) {
+    .api-container h1 {
+        font-size: 1.5em;
+    }
+    
+    .api-container p {
+        font-size: 1em;
+    }
+    
+    .api-container label {
+        font-size: 0.9em;
+    }
+    
+    .api-container input,
+    .api-container select {
+        font-size: 0.9em;
+    }
+    
+    .api-container button {
+        font-size: 0.9em;
+    }
+}

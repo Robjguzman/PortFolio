@@ -63,6 +63,7 @@ import ProjectDisplay from "./pages/ProjectDisplay";
 import AboutMe from "./pages/About";
 import Contact from "./pages/Contact";
 import Modal from "./pages/Modal";
+import API from "./pages/Api-testing";
 
 function App() {
   const [isProjectDisplayOpen, setIsProjectDisplayOpen] = useState(false);
@@ -95,6 +96,7 @@ function App() {
         <Projects onProjectClick={handleProjectClick} />
         <Experience />
         <Contact />
+        <API />
       </main>
       {isProjectDisplayOpen && (
         <Modal onClose={handleClose}>
