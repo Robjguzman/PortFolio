@@ -1,10 +1,10 @@
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import EmailIcon from "@material-ui/icons/Email";
 import GithubIcon from "@material-ui/icons/GitHub";
-import codingimage from "../assets/animation.gif";
 import codingimage2 from "../assets/codeimage.gif";
 import character_student from "../assets/character_student.gif"
 import { TypeAnimation } from "react-type-animation";
+import { motion } from "framer-motion";
 
 import "../styles/Home.css";
 
@@ -13,153 +13,225 @@ function Home() {
   const githubUrl = "https://github.com/Robertguzmanny?tab=repositories";
   const emailurl = "mailto:robert.guzman3@lc.cuny.edu";
 
+  const fadeInUp = {
+    initial: { opacity: 0, y: 60 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.6 }
+  };
+
   return (
-  <div data-aos="fade-up left">
-    <div id="home">
-    <div className="home">
-      <div className="welcome">
-        <img className="gif-image" src={character_student} alt="Character"/>
-      </div>
-      <div className="about">
-        <h2> Hey there! I am Robert J. Guzman</h2>
-        <h3 className="animated-text">
-          <TypeAnimation
-            sequence={[
-              "Computer Science",
-              500,
-              "Software Engineer",
-              500,
-              "Software Developer",
-              500,
-              "Web Developer",
-              500,
-              "Project Manager",
-              500,
-              "Android Developer",
-              500,
-              "Databases",
-              500
-            ]}
-            style={{ fontSize: "2em" }}
-            repeat={Infinity}
-          />
-        </h3>
+    <div className="home-container">
+      <div id="home">
+        <div className="home">
+          <motion.div 
+            className="welcome"
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            <img className="gif-image" src={character_student} alt="Character"/>
+          </motion.div>
+          
+          <motion.div 
+            className="about"
+            {...fadeInUp}
+          >
+            <h1 className="main-title">Hey there! I am Robert J. Guzman</h1>
+            <h3 className="animated-text">
+              <TypeAnimation
+                sequence={[
+                  "Computer Science",
+                  500,
+                  "Software Engineer",
+                  500,
+                  "Software Developer",
+                  500,
+                  "Web Developer",
+                  500,
+                  "Project Manager",
+                  500,
+                  "Android Developer",
+                  500,
+                  "Databases",
+                  500
+                ]}
+                style={{ fontSize: "2.5em", fontWeight: "bold" }}
+                repeat={Infinity}
+              />
+            </h3>
 
-        <div className="prompt">
-          <p>Below is my Tech stack and Technologies</p>
-          <a href={linkedinUrl} target="_blank" rel="noopener noreferrer">
-            <LinkedInIcon />
-          </a>
-          <a href={emailurl} target="_blank" rel="noopener noreferrer">
-            <EmailIcon />
-          </a>
-          <a href={githubUrl} target="_blank" rel="noopener noreferrer">
-            <GithubIcon />
-          </a>
-          <p>Check the rest of my page and enjoy!</p>
+            <div className="prompt">
+              <p className="intro-text">Passionate about creating innovative solutions through code</p>
+              <div className="social-links">
+                <motion.a 
+                  href={linkedinUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.2 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <LinkedInIcon className="social-icon linkedin" />
+                </motion.a>
+                <motion.a 
+                  href={emailurl} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.2 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <EmailIcon className="social-icon email" />
+                </motion.a>
+                <motion.a 
+                  href={githubUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.2 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <GithubIcon className="social-icon github" />
+                </motion.a>
+              </div>
+             
+            </div>
+          </motion.div>
+
+          <motion.div 
+            className="skills-section"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5 }}
+          >
+            <h1>Technical Expertise</h1>
+            <div className="skills-grid">
+              <div className="skill-category">
+                <h2>Front-End</h2>
+                <div className="skill-items">
+                  {[
+                    { name: 'ReactJS', level: 90, icon: 'fab fa-react', color: '#61DAFB' },
+                    { name: 'Angular', level: 85, icon: 'fab fa-angular', color: '#DD0031' },
+                    { name: 'HTML/CSS', level: 95, icon: 'fab fa-html5', color: '#E34F26' },
+                    { name: 'Node.JS', level: 88, icon: 'fab fa-node-js', color: '#68A063' },
+                  ].map((skill, index) => (
+                    <motion.div 
+                      key={index}
+                      className="skill-item"
+                      whileHover={{ scale: 1.05 }}
+                    >
+                      <i className={skill.icon} style={{ color: skill.color }}></i>
+                      <span className="skill-name">{skill.name}</span>
+                      <div className="skill-bar-container">
+                        <motion.div 
+                          className="skill-bar"
+                          initial={{ width: 0 }}
+                          animate={{ width: `${skill.level}%` }}
+                          transition={{ duration: 1, delay: index * 0.2 }}
+                          style={{ backgroundColor: skill.color }}
+                        />
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+              <div className="skill-category">
+                <h2>Back-End</h2>
+                <div className="skill-items">
+                  {[
+                    { name: 'NodeJS', level: 90, icon: 'fab fa-node-js', color: '#68A063' },
+                    { name: 'Java SpringBoot', level: 85, icon: 'fab fa-java', color: '#007396' },
+                    { name: 'Python', level: 88, icon: 'fab fa-python', color: '#3572A5' },
+                    { name: 'ExpressJS', level: 85, icon: 'fab fa-node-js', color: '#68A063' },
+                  ].map((skill, index) => (
+                    <motion.div 
+                      key={index}
+                      className="skill-item"
+                      whileHover={{ scale: 1.05 }}
+                    >
+                      <i className={skill.icon} style={{ color: skill.color }}></i>
+                      <span className="skill-name">{skill.name}</span>
+                      <div className="skill-bar-container">
+                        <motion.div 
+                          className="skill-bar"
+                          initial={{ width: 0 }}
+                          animate={{ width: `${skill.level}%` }}
+                          transition={{ duration: 1, delay: index * 0.2 }}
+                          style={{ backgroundColor: skill.color }}
+                        />
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+              <div className="skill-category">
+                <h2>Technologies</h2>
+                <div className="skill-items">
+                  {[
+                    { name: 'Git', level: 90, icon: 'fab fa-git', color: '#F34F29' },
+                    { name: 'GitHub', level: 85, icon: 'fab fa-github', color: '#181717' },
+                    { name: 'Jira', level: 88, icon: 'fab fa-jira', color: '#0052CC' },
+                    { name: 'Confluence', level: 85, icon: 'fab fa-confluence', color: '#172B4D' },
+                  ].map((skill, index) => (
+                    <motion.div 
+                      key={index}
+                      className="skill-item"
+                      whileHover={{ scale: 1.05 }}
+                    >
+                      <i className={skill.icon} style={{ color: skill.color }}></i>
+                      <span className="skill-name">{skill.name}</span>
+                      <div className="skill-bar-container">
+                        <motion.div 
+                          className="skill-bar"
+                          initial={{ width: 0 }}
+                          animate={{ width: `${skill.level}%` }}
+                          transition={{ duration: 1, delay: index * 0.2 }}
+                          style={{ backgroundColor: skill.color }}
+                        />
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+              <div className="skill-category">
+                <h2>Languages</h2>
+                <div className="skill-items">
+                  {[
+                    { name: 'Python', level: 90, icon: 'fab fa-python', color: '#3572A5' },
+                    { name: 'Java', level: 85, icon: 'fab fa-java', color: '#007396' },
+                    { name: 'JavaScript', level: 88, icon: 'fab fa-js', color: '#F7DF1E' },
+                    { name: 'TypeScript', level: 85, icon: 'fab fa-react', color: '#61DAFB' },
+                  ].map((skill, index) => (
+                    <motion.div 
+                      key={index}
+                      className="skill-item"
+                      whileHover={{ scale: 1.05 }}
+                    >
+                      <i className={skill.icon} style={{ color: skill.color }}></i>
+                      <span className="skill-name">{skill.name}</span>
+                      <div className="skill-bar-container">
+                        <motion.div 
+                          className="skill-bar"
+                          initial={{ width: 0 }}
+                          animate={{ width: `${skill.level}%` }}
+                          transition={{ duration: 1, delay: index * 0.2 }}
+                          style={{ backgroundColor: skill.color }}
+                        />
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div 
+            className="image-section"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8 }}
+          >
+            <img className="responsive-image" src={codingimage2} alt="Coding" />
+          </motion.div>
         </div>
       </div>
-      <div/>
-      <div className="container">
-        <div className="centered-image">
-          <img className="responsive-image" src={codingimage} alt="Gift" />
-        </div>
-      </div>
-
-      <div className="skills">
-        <h1>Skills</h1>
-        <ul className="list">
-          <li className="item">
-            <h2>Front-End</h2>
-            <span>
-              <i className="fab fa-react" style={{ color: "#61DAFB" }}></i>{" "}
-              <span className="skill-name">ReactJS</span>,{" "}
-              <i className="fab fa-angular" style={{ color: "#DD0031" }}></i>{" "}
-              <span className="skill-name">Angular</span>,{" "}
-              <i className="fab fa-html5" style={{ color: "#E34F26" }}></i>{" "}
-              <span className="skill-name">HTML</span>,{" "}
-              <i className="fab fa-css3" style={{ color: "#1572B6" }}></i>{" "}
-              <span className="skill-name">CSS</span>,{" "}
-              <i className="fab fa-node-js" style={{ color: "#68A063" }}></i>{" "}
-              <span className="skill-name">Node.JS</span>,{" "}
-              <i className="fab fa-yarn" style={{ color: "#2C8EBB" }}></i>{" "}
-              <span className="skill-name">Yarn</span>,{" "}
-              <i className="fab fa-ionic" style={{ color: "#3880FF" }}></i>{" "}
-              <span className="skill-name">Ionic</span>,{" "}
-              <i className="fab fa-bootstrap" style={{ color: "#7952B3" }}></i>{" "}
-              <span className="skill-name">BootStrap</span>,{" "}
-              <i
-                className="fab fa-material-ui"
-                style={{ color: "#0081CB" }}
-              ></i>{" "}
-              <span className="skill-name">MaterialUI</span>,{" "}
-              <i className="fab fa-android" style={{ color: "#3DDC84" }}></i>{" "}
-              <span className="skill-name">Android XML</span>.
-            </span>
-          </li>
-          <li className="item">
-            <h2>Back-End</h2>
-            <span>
-              <i className="fab fa-node-js" style={{ color: "#68A063" }}></i>{" "}
-              <span className="skill-name">NodeJS</span>,{" "}
-              <i className="fab fa-java" style={{ color: "#007396" }}></i>{" "}
-              <span className="skill-name">Java SpringBoot</span>,{" "}
-              <i className="fab fa-python" style={{ color: "#3572A5" }}></i>{" "}
-              <span className="skill-name">Flask</span>,{" "}
-              <i className="fab fa-node-js" style={{ color: "#68A063" }}></i>{" "}
-              <span className="skill-name">ExpressJS</span>,{" "}
-              <i className="fas fa-database" style={{ color: "#263238" }}></i>{" "}
-              <span className="database-icon">Postgres</span>,{" "}
-              <i className="fas fa-database" style={{ color: "#263238" }}></i>{" "}
-              <span className="database-icon">MySQL</span>,{" "}
-              <i className="fas fa-database" style={{ color: "#263238" }}></i>{" "}
-              <span className="database-icon">Oracle SQL</span>,{" "}
-              <i className="fab fa-firefox" style={{ color: "#FFA000" }}></i>{" "}
-              <span className="skill-name">Firebase</span>,{" "}
-              <i className="fas fa-database" style={{ color: "#263238" }}></i>{" "}
-              <span className="skill-name">PowerBI</span>,{" "}
-              <i className="fas fa-database" style={{ color: "#263238" }}></i>{" "}
-              <span className="database-icon">SQLite</span>.
-            </span>
-          </li>
-          <li className="item">
-            <h2>Technologies</h2>
-            <span>
-              <i className="fab fa-git" style={{ color: "#F34F29" }}></i>{" "}
-              <span className="skill-name">Git</span>,{" "}
-              <i className="fab fa-github" style={{ color: "#181717" }}></i>{" "}
-              <span className="skill-name">GitHub</span>,{" "}
-              <i className="fab fa-jira" style={{ color: "#0052CC" }}></i>{" "}
-              <span className="skill-name">Jira</span>,{" "}
-              <i className="fab fa-confluence" style={{ color: "#172B4D" }}></i>{" "}
-              <span className="skill-name">Confluence</span>,{" "}
-              <i className="fab fa-bitbucket" style={{ color: "#0052CC" }}></i>{" "}
-              <span className="skill-name">BitBucket</span>,{" "}
-            </span>
-          </li>
-          <li className="item">
-            <h2>Languages</h2>
-            <span>
-              <i className="fab fa-python" style={{ color: "#3572A5" }}></i>{" "}
-              <span className="skill-name">Python</span>,{" "}
-              <i className="fab fa-java" style={{ color: "#007396" }}></i>{" "}
-              <span className="skill-name">Java</span>,{" "}
-              <i className="fab fa-js" style={{ color: "#F7DF1E" }}></i>{" "}
-              <span className="skill-name">JavaScript</span>,{" "}
-              <i className="fab fa-react" style={{ color: "#61DAFB" }}></i>{" "}
-              <span className="skill-name">TypeScript</span>,
-              <i className="fab fa-cuttlefish" style={{ color: "#61DAFB" }}></i>{" "}
-              <span className="skill-name">C++</span>.
-            </span>
-          </li>
-        </ul>
-      </div>
-      <div className="centered-image2">
-        <img className="responsive-image" src={codingimage2} alt="Gift" />
-      </div>
-    
-      </div>
-    </div>
     </div>
   );
 }

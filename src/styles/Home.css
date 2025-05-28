@@ -1,229 +1,168 @@
-.home {
+.home-container {
   width: 100%;
-  height: 100%;
-  align-items: center;
-  font-family: "Arial", sans-serif;
-  color: black;
-  
+  min-height: 100vh;
+  background: #ffffff;
+  color: #333333;
 }
-.home .welcome {
-  width: 50%; /* Adjust this value as needed */
-  margin: 0 auto; /* Center the welcome div horizontally */
+
+.home {
   display: flex;
-  justify-content: center; /* Center horizontally inside the .welcome */
-  align-items: center; /* Center vertically inside the .welcome */
-  flex-direction: column; /* Stack children elements vertically */
-  min-height: 100vh; /* Ensure it takes at least full viewport height */
-  gap: 20px; /* Adds space between the flex items */
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.welcome {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
 }
 
 .gif-image {
-  max-width: 80%; /* Adjust width to reduce the size of the image */
-  height: auto; /* Maintain aspect ratio */
+  max-width: 300px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .about {
-  width: 100%;
-  height: calc(100vh - 100px);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   text-align: center;
-  background-position: fill;
-  color: black;
-  
+  margin-bottom: 4rem;
 }
 
-.about h2 {
-  font-family: "Segoe UI", Tahoma, Geneva,
-   Verdana, sans-serif;
-  font-size: 5vw; /* Increased font size for larger screens while maintaining one line */
-  color: black;
-  margin: 1% 0; /* Adjusted margin for better spacing */
-  line-height: 1; /* Adjusted line height to fit one line */
+.main-title {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(45deg, #000000, #010101);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.about .prompt {
-  width: 40%;
-  font-size: 30px;
-}
-.prompt svg {
-  font-size: 60px;
-  margin: 5px;
-  color: black;
+.animated-text {
+  margin-bottom: 2rem;
 }
 
-.skills {
-  font-size: 35px;
+.intro-text {
+  font-size: 1.2rem;
+  color: #666666;
+  margin-bottom: 2rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.social-icon {
+  font-size: 2rem !important;
+  transition: all 0.3s ease;
+}
+
+.social-icon.linkedin { color: #0077b5; }
+.social-icon.email { color: #ea4335; }
+.social-icon.github { color: #333333; }
+
+
+
+.resume-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
+}
+
+.skills-section {
+  width: 100%;
+  margin-bottom: 4rem;
+}
+
+.skills-section h1 {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 2.5rem;
+  background: linear-gradient(45deg, #000000, #000000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.skill-category {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.skill-category h2 {
+  margin-bottom: 1.5rem;
+  color: #000000;
+}
+
+.skill-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.skill-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.skill-item i {
+  font-size: 1.5rem;
+  width: 30px;
+}
+
+.skill-name {
+  min-width: 100px;
+}
+
+.skill-bar-container {
+  flex-grow: 1;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.skill-bar {
+  height: 100%;
+  border-radius: 4px;
+}
+
+.image-section {
   width: 100%;
   display: flex;
   justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  font-weight: bold;
-}
-
-.skills h1 {
-  color: black;
-}
-
-.skills .list {
-  list-style: none;
-  width: 60%;
-}
-
-.list span {
-  font-size: 20px;
-}
-
-@media only screen and (max-width: 600px) {
-  .about h2 {
-    font-size: 40px;
-  }
-
-  .about .prompt {
-    margin-top: 10px;
-    font-size: 20px;
-    width: 80%;
-  }
-
-  .skills {
-    text-align: center;
-    
-
-  }
-  .list {
-    padding: 0;
-  }
-
-  .skills h2 {
-    font-size: 30px;
-  }
-}
-
-/* Style for each skill card */
-.skill-card {
-  background-color: #f9f9f9;
-  padding: 20px;
-  margin: 10px 0;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Style for skill categories (e.g., Front-End, Back-End, Technologies, Languages) */
-.skill-card h2 {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-/* Style for skill icons */
-.skill-icons {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-}
-
-.skill-icons i {
-  margin-right: 10px;
-  font-size: 24px;
-}
-
-/* Media query for responsive design */
-@media (max-width: 768px) {
-  .skill-card {
-    padding: 10px;
-  }
-  
-  .skill-card h2 {
-    font-size: 20px;
-  }
-  
-  .skill-icons i {
-    font-size: 20px;
-    margin-right: 8px;
-  }
-}
-
-.skills-container {
-  display: flex;
-  overflow-x: auto;
-  white-space: nowrap;
-}
-
-.skill-card {
-  margin-right: 20px; /* Add spacing between skill cards */
-}
-
-.skill-icons {
-  display: inline-block;
-}
-
-.skill-icons i {
-  margin-right: 10px; /* Add spacing between skill icons */
-}
-
-.centered-image {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* margin-top: -20%; */
-  
-}
-
-@media (max-width: 480px){
-  .centered-image{
-    margin-top: 10vh;
-  }
-}
-
-@media (max-width: 768px){
-  .centered-image{
-    margin-top: 10vh;
-  }
-}
-
-.centered-image2 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  
 }
 
 .responsive-image {
   max-width: 100%;
   height: auto;
-  margin: 0;
-  padding: 0;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
-
-
-.animated-text {
-  font-size: 1.5em;
-  text-align: center;
-}
-
-@media (max-width: 600px) {
-  .animated-text {
-    font-size: 1em; /* Adjust this value for smaller screens */
+@media (max-width: 768px) {
+  .main-title {
+    font-size: 2rem;
   }
-}
-
-.home {
-  margin-top: 100px; /* Increased from 10% to a fixed pixel value for better control */
-  /* Other styles... */
-}
-
-/* If the .experience class has a direct child that serves as a section header or similar, you can add padding-top to it as well */
-.home > :first-child {
-  padding-top: 100px; /* This adds space at the top inside the first element of .experience */
-}
-
-/* Since you have a sticky navbar, ensure that the top margin is at least as tall as the navbar itself */
-@media screen and (max-width: 768px) {
-  .home {
-    margin-top: 100px; /* You can adjust this for smaller screens if your navbar height changes */
+  
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .skill-category {
+    padding: 1.5rem;
   }
 }
 
