@@ -42,7 +42,6 @@
 
 import React, { useState } from "react";
 import "../styles/Navbar.css";
-import ReorderIcon from "@material-ui/icons/Reorder";
 
 function Navbar() {
   const [expandNavbar, setExpandNavbar] = useState(false);
@@ -54,18 +53,40 @@ function Navbar() {
 
   return (
     <nav className={`navbar ${expandNavbar ? "open" : ""}`}>
-      <div className="toggleButton">
-        <button onClick={toggleNavbar}>
-          <ReorderIcon />
-        </button>
+      <div className="navbar-brand">
+        <span>Robert J. Guzman</span>
       </div>
-      <div className="links">
-        <a href="#home" onClick={toggleNavbar}>Home</a>
-        <a href="#about" onClick={toggleNavbar}>About</a>
-        <a href="#projects" onClick={toggleNavbar}>Projects</a>
-        <a href="#experience" onClick={toggleNavbar}>Experience</a>
-        <a href="#contact" onClick={toggleNavbar}>Contact</a>
-        <a href="#api" onClick={toggleNavbar}>API Test</a>
+      
+      <div className="mobile-menu-btn" onClick={toggleNavbar}>
+        <span>Menu</span>
+        <div className={`hamburger ${expandNavbar ? "open" : ""}`}>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+      
+      <div className={`nav-links ${expandNavbar ? "open" : ""}`}>
+        <a href="#home" onClick={toggleNavbar}>
+          <span className="nav-icon">🏠</span>
+          Home
+        </a>
+        <a href="#about" onClick={toggleNavbar}>
+          <span className="nav-icon">👤</span>
+          About
+        </a>
+        <a href="#projects" onClick={toggleNavbar}>
+          <span className="nav-icon">💻</span>
+          Projects
+        </a>
+        <a href="#experience" onClick={toggleNavbar}>
+          <span className="nav-icon">💼</span>
+          Experience
+        </a>
+        <a href="#contact" onClick={toggleNavbar}>
+          <span className="nav-icon">📧</span>
+          Contact
+        </a>
       </div>
     </nav>
   );

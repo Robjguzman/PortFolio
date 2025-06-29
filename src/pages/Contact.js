@@ -56,7 +56,7 @@ function Contact() {
             <div className="contact-page">
                 <div className="contact-container">
                     <h1>Contact Me</h1>
-                    <p>Have any questions? Or just want to connect, please don't hesitate to get in touch!</p>
+                    <p>Have any questions? Or just want to connect, please dont hesitate to get in touch!</p>
                     {isSubmitted ? (
                         <div className="thank-you">
                             <h2>Thank You!</h2>

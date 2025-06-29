@@ -1,179 +1,340 @@
-.project {
-  width: 100%;
-  min-height: calc(
-    100vh - 100px
-  ); /* Use min-height for better responsiveness */
+/* Modern ProjectDisplay Modal Styles */
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  text-align: center; /* Center-align text content */
-  padding: 2% 0; /* Added padding for spacing */
+  z-index: 1000;
+  padding: 20px;
+  animation: fadeIn 0.3s ease;
 }
 
-.project h1 {
-  margin-top: 20px; /* Reduced margin-top for better spacing */
-  color: black;
-  font-size: 4.5vw; /* Responsive font size */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Modal Content Container */
+.modal-content {
+  background: #ffffff;
+  border-radius: 20px;
+  max-width: 800px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+  animation: slideUp 0.4s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Custom Scrollbar */
+.modal-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Close Button */
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  z-index: 1001;
+  color: #333;
+}
+
+.modal-close:hover {
+  background: #333;
+  color: white;
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Project Header */
+.project-header {
+  padding: 40px 40px 20px;
+  text-align: center;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.project-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin: 0 0 20px 0;
+  line-height: 1.2;
+}
+
+.project-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.skill-badge {
+  background: #000000;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* Project Image */
+.project-image {
+  position: relative;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  background: #f8f9fa;
 }
 
 .project-image img {
-  display: block; /* Remove any extra space below the image */
-  max-width: 100%; /* Make sure the image is not wider than the container */
-  max-height: 50vh; /* Optional: limit the height of the image */
-  object-fit: contain; /* Maintain aspect ratio without cropping the image */
-  margin: 0 auto; /* Center the image horizontally */
+  max-width: 100%;
+  max-height: 400px;
+  object-fit: contain;
+  border-radius: 15px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
 }
 
-
-.modal-content {
-  padding: 20px;
-  max-width: 90%; /* Limit the width for larger screens */
-  max-height: 90vh; /* Limit the height so it doesn't touch the viewport's top and bottom */
-  box-sizing: border-box; /* Include padding in width and height calculations */
+.project-image:hover img {
+  transform: scale(1.02);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
 }
 
-
-
-.Inside-Content {
-  font-size: 16px; /* Default font size for non-vw-capable devices */
-  color: black;
-  margin: 10px auto; /* Center horizontally and add vertical margin */
-  text-align: justify;
-  max-width: 800px; /* Limit the maximum width for readability on larger screens */
-  padding: 10px; /* Add padding to prevent text from touching corners on small screens */
-  box-sizing: border-box; /* Include padding in the max-width calculation */
-}
-
-/* Responsive font size for vw-capable devices */
-@media screen and (min-width: 768px) {
-  .Inside-Content {
-    font-size: 3vw; /* Adjust font size for larger screens */
-  }
-}
-
-.project svg {
-  font-size: 5vw; /* Responsive font size */
-  color: black;
-  margin: 10px 0; /* Adjusted margin for better spacing */
-}
-
-/* Media query for larger screens (e.g., desktop) */
-@media screen and (min-width: 768px) {
-  .Inside-Content {
-    font-size: 24px; /* Adjust font size for larger screens */
-    max-width: 95%; /* Increase max-width for better readability */
-  }
-
-  .project svg {
-    font-size: 4vw; /* Adjust font size for larger screens */
-  }
-}
-
-.Github {
-  display: flex; /* Use flexbox to center the logo */
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  width: 2000px; /* Increase the width */
-  height: auto; /* Maintain the aspect ratio */
-  fill: black; /* Change the color to black. Note: This works if the GitHub icon is an SVG. */
-  margin: 0 auto; /* Center the logo horizontally */
-  color: black; /* Change the color to black if it's a font icon */
-}
-
-
-
-
-/* CSS for the navigation container */
-.navigation-container {
-  position: fixed;
-  bottom: 0;
+/* Image Overlay */
+.image-overlay {
+  position: absolute;
+  top: 0;
   left: 0;
   right: 0;
-  background-color: white;
-  padding: 10px;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
   display: flex;
-  justify-content: flex-end;
-  align-items: right; /* Center vertically within the container */
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.3s ease;
+  border-radius: 15px;
+  margin: 40px;
 }
 
+.project-image:hover .image-overlay {
+  opacity: 1;
+}
 
-button {
-  border: 2px solid #000;
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  border-radius: 20px;
-  padding: 0.3rem 0.8rem;
-  width: auto;
+.github-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  text-decoration: none;
   font-weight: 600;
-  margin: 0.5rem 1rem;
-  cursor: pointer;
-  transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
 }
 
-/* Style for the "Next Project" button */
-#next {
-  background: black;
-  color: #fff;
+.github-link:hover {
+  transform: scale(1.1);
 }
 
-#next:hover {
-  background: transparent;
-  border: 2px solid black; /* Set border to 2px solid black on hover */
-  color: #000;
+.github-icon {
+  font-size: 2rem !important;
 }
 
-/* Style for the "Previous Project" button */
-#prev {
-  transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
+/* Project Content */
+.project-content {
+  padding: 0 40px 20px;
 }
 
-#prev:hover {
-  background: white;
-  border: 2px solid black; /* Set border to 2px solid black on hover */
-  color: black;
+.content-section {
+  margin-bottom: 30px;
 }
 
-/* Style for the "Back to Projects" button */
-#back {
-  transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
+.section-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 0 0 15px 0;
+  position: relative;
+  padding-bottom: 8px;
 }
 
-#back:hover {
-  background: white;
-  border: 2px solid black; /* Set border to 2px solid black on hover */
-  color: black;
-}
-
-.modal-close {
+.section-title::after {
+  content: '';
   position: absolute;
-  top: 1rem; /* Space from the top */
-  right: 1rem; /* Space from the right */
-  background: none;
-  border: none;
-  font-size: 1.5rem; /* Large enough to be easily clickable */
-  cursor: pointer;
-  color: #000; /* Contrasting color */
-  z-index: 1100; /* Above other content */
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background: #000000;
+  border-radius: 2px;
 }
 
-.project h1, .project .skills, .project .description, .project .mainPurpose {
-  /* Remove or reduce margin and padding as needed */
+.section-text {
+  color: #555;
+  line-height: 1.7;
+  font-size: 1rem;
   margin: 0;
-  padding: 0.5rem 0; /* Example: consistent vertical padding with no horizontal margin */
-  text-align: left; /* Align text to the left */
-  /* ... other styles you might want to apply ... */
 }
 
-/* ... other styles ... */
+/* Tech Grid */
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px;
+  margin-top: 15px;
+}
 
-/* Apply media queries for responsiveness */
+.tech-item {
+  background: #f8f9fa;
+  border: 2px solid #e9ecef;
+  border-radius: 10px;
+  padding: 12px 16px;
+  text-align: center;
+  font-weight: 500;
+  color: #495057;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.tech-item:hover {
+  background: #000000;
+  color: white;
+  border-color: #000000;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Project Footer */
+.project-footer {
+  padding: 20px 40px 40px;
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid #f0f0f0;
+  background: #f8f9fa;
+}
+
+.primary-button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #000000;
+  color: white;
+  padding: 15px 30px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.primary-button:hover {
+  background: #333333;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+  color: white;
+}
+
+.primary-button svg {
+  font-size: 1.5rem !important;
+}
+
+/* Mobile Responsive */
 @media (max-width: 768px) {
-  .modal-close {
-    font-size: 2rem; /* Larger size for better visibility on mobile */
+  .modal-overlay {
+    padding: 10px;
   }
-  /* Adjust text size for smaller devices */
-  .project h1, .project .skills, .project .description, .project .mainPurpose {
-    font-size: smaller; /* Adjust font size for smaller devices */
+  
+  .modal-content {
+    border-radius: 15px;
+    max-height: 95vh;
+  }
+  
+  .project-header {
+    padding: 30px 20px 15px;
+  }
+  
+  .project-title {
+    font-size: 2rem;
+  }
+  
+  .project-image {
+    padding: 20px;
+  }
+  
+  .project-content {
+    padding: 0 20px 15px;
+  }
+  
+  .project-footer {
+    padding: 15px 20px 30px;
+  }
+  
+  .modal-close {
+    width: 35px;
+    height: 35px;
+    font-size: 20px;
+    top: 15px;
+    right: 15px;
+  }
+  
+  .tech-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 8px;
+  }
+  
+  .tech-item {
+    padding: 8px 12px;
+    font-size: 0.8rem;
   }
 }

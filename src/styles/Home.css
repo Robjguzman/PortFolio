@@ -3,6 +3,7 @@
   min-height: 100vh;
   background: #ffffff;
   color: #333333;
+  position: relative;
 }
 
 .home {
@@ -23,8 +24,15 @@
 
 .gif-image {
   max-width: 300px;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gif-image:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
 }
 
 .about {
@@ -33,11 +41,13 @@
 }
 
 .main-title {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  background: linear-gradient(45deg, #000000, #010101);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  font-size: 3.2rem;
+  margin-bottom: 1.5rem;
+  color: #2c3e50;
+  font-weight: 700;
+  letter-spacing: -1px;
+  line-height: 1.2;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .animated-text {
@@ -45,26 +55,73 @@
 }
 
 .intro-text {
-  font-size: 1.2rem;
-  color: #666666;
-  margin-bottom: 2rem;
+  font-size: 1.3rem;
+  color: #555;
+  margin-bottom: 2.5rem;
+  font-weight: 300;
+  line-height: 1.6;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .social-links {
   display: flex;
-  gap: 1.5rem;
+  gap: 3rem;
   justify-content: center;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 .social-icon {
-  font-size: 2rem !important;
+  font-size: 4rem !important;
   transition: all 0.3s ease;
+  padding: 25px;
+  border-radius: 50%;
+  background: #f8f9fa;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  border: 2px solid transparent;
+  cursor: pointer;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.social-icon.linkedin { color: #0077b5; }
-.social-icon.email { color: #ea4335; }
-.social-icon.github { color: #333333; }
+.social-icon:hover {
+  transform: translateY(-8px) scale(1.1);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+}
+
+.social-icon.linkedin { 
+  color: #0077b5;
+}
+
+.social-icon.linkedin:hover {
+  background: #0077b5;
+  color: white;
+  border-color: #0077b5;
+}
+
+.social-icon.email { 
+  color: #ea4335;
+}
+
+.social-icon.email:hover {
+  background: #ea4335;
+  color: white;
+  border-color: #ea4335;
+}
+
+.social-icon.github { 
+  color: #333333;
+}
+
+.social-icon.github:hover {
+  background: #333333;
+  color: white;
+  border-color: #333333;
+}
 
 
 
@@ -94,15 +151,38 @@
 }
 
 .skill-category {
-  background: rgba(0, 0, 0, 0.05);
-  border-radius: 15px;
-  padding: 2rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border: 1px solid #f0f0f0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-category:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
 }
 
 .skill-category h2 {
-  margin-bottom: 1.5rem;
-  color: #000000;
+  margin-bottom: 2rem;
+  color: #2c3e50;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+  position: relative;
+}
+
+.skill-category h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 3px;
+  background: #000000;
+  border-radius: 2px;
 }
 
 .skill-items {
@@ -152,9 +232,28 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
+/* Desktop/Laptop - Make icons even bigger */
+@media (min-width: 1024px) {
+  .social-icon {
+    font-size: 5rem !important;
+    width: 140px;
+    height: 140px;
+    padding: 30px;
+  }
+}
+
 @media (max-width: 768px) {
   .main-title {
     font-size: 2rem;
+  }
+  
+  .social-links {
+    gap: 2.5rem;
+  }
+  
+  .social-icon {
+    font-size: 4.5rem !important;
+    padding: 25px;
   }
   
   .skills-grid {
@@ -163,6 +262,27 @@
   
   .skill-category {
     padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .social-links {
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  
+  .social-icon {
+    font-size: 4rem !important;
+    padding: 22px;
+    min-width: 120px;
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .main-title {
+    font-size: 1.8rem;
   }
 }
 

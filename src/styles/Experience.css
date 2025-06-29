@@ -1,127 +1,418 @@
-.Accomplishments {
-  font-size: 3vw; /* Default font size for larger screens */
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
+/* Global Box-Sizing for better layout control */
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
-/* Media query for smaller screens (e.g., mobile devices) */
-@media screen and (max-width: 480px) {
-  .Accomplishments {
-    font-size: 5vw; /* Increase font size for smaller screens */
-  }
-}
+/* Modern Experience Page Styles */
 
-/* Continue with the rest of your existing styles... */
-
-.image-container-experience {
-  position: relative;
-  max-width: 80%;
-  margin: 50px auto; /* Center the container horizontally */
-  padding: 20px; /* Add padding as needed */
-  text-align: center; /* Center the child elements horizontally */
-}
-
-.image {
-  max-width: 100%; /* Ensure the image scales with its container */
-  height: auto; /* Allow the height to adjust proportionally */
-  width: 70%;
-  object-fit: contain; /* Maintain aspect ratio and fit within the container */
-  border: 2px solid #000; /* Add a border around the image */
-  margin-bottom: 10px; /* Add margin for spacing */
-}
-
-/* Media query for screens with a maximum width of 768px (typical mobile devices) */
-@media screen and (max-width: 768px) {
-  .image {
-    max-width: 90%; /* Reduce the image size for smaller screens */
-  }
-}
-
-.swipeable-container {
-  display: flex;
-  flex-direction: column; /* Change to relative positioning */
-  align-items: center;
-}
-
-
-.container-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: auto;
+/* Main Experience Container */
+#experience {
   min-height: 100vh;
-}
-
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-}
-
-.swipeable-container {
-  position: relative;
-  width: 100%;
-  height: auto;
-}
-
-.button-container {
-  position: absolute;
-  top: 50%;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  transform: translateY(-50%);
-}
-
-.left-arrow {
-  order: 1;
-}
-
-.right-arrow {
-  order: 2;
-}
-
-button {
-  background: rgb(0, 0, 0);
-  border: 1px solid rgb(0, 0, 0);
-  padding: 1rem; /* Adjust padding for button size */
-  font-size: 1.5rem; /* Adjust font size for button size */
-  cursor: pointer;
-  color: #fff;
-}
-
-button:hover {
-  background: #f0f0f0;
-  color: #000;
-}
-
-
-@media screen and (max-width: 768px) {
-  .container-wrapper {
-    height: 100%; /* Adjust styles for smaller screens */
-  }
+  padding: 80px 0;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
 }
 
 .experience {
-  margin-top: 120px; /* Increased from 10% to a fixed pixel value for better control */
-  /* Other styles... */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px; /* Default desktop padding */
+  margin-top: 120px;
 }
 
-/* If the .experience class has a direct child that serves as a section header or similar, you can add padding-top to it as well */
-.experience > :first-child {
-  padding-top: 120px; /* This adds space at the top inside the first element of .experience */
+/* Experience Header */
+.experience-header {
+  text-align: center;
+  margin-bottom: 60px;
+  padding: 0 20px; /* Default desktop padding */
 }
 
-/* Since you have a sticky navbar, ensure that the top margin is at least as tall as the navbar itself */
+.experience-header h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin: 0 0 20px 0;
+  line-height: 1.2;
+}
+
+.experience-header p {
+  font-size: 1.2rem;
+  color: #666;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Timeline Content Styles */
+.experience-content {
+  padding: 0;
+}
+
+.experience-content.education {
+  color: #ffffff;
+}
+
+/* Company Badge */
+.company-badge {
+  display: inline-block;
+  background: #000000;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+/* Timeline Titles */
+.vertical-timeline-element-title {
+  font-size: 1.5rem !important;
+  font-weight: 600 !important;
+  color: #2c3e50 !important;
+  margin: 0 0 8px 0 !important;
+  line-height: 1.3 !important;
+}
+
+.education .vertical-timeline-element-title {
+  color: #ffffff !important;
+}
+
+.vertical-timeline-element-subtitle {
+  font-size: 1.1rem !important;
+  color: #666 !important;
+  margin: 0 0 20px 0 !important;
+  font-weight: 500 !important;
+}
+
+.education .vertical-timeline-element-subtitle {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Experience Highlights */
+.experience-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.highlight-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.highlight-item:last-child {
+  border-bottom: none;
+}
+
+.highlight-item .metric {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #000000;
+  min-width: 60px;
+  text-align: center;
+  background: #f8f9fa;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 2px solid #e9ecef;
+}
+
+.highlight-item .description {
+  flex: 1;
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* Tech Stack */
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.tech-tag {
+  background: #e9ecef;
+  color: #495057;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  transition: all 0.3s ease;
+}
+
+.tech-tag:hover {
+  background: #000000;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Education Details */
+.education-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.gpa-badge,
+.honor-badge {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  backdrop-filter: blur(10px);
+}
+
+/* Timeline Customizations */
+.vertical-timeline::before {
+  background: #2c3e50 !important;
+  width: 4px !important;
+}
+
+.current-position .vertical-timeline-element-content {
+  position: relative;
+  overflow: hidden;
+}
+
+.current-position .vertical-timeline-element-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #000000, #333333);
+}
+
+/* Accomplishments Section */
+.accomplishments-section {
+  margin-top: 80px;
+  padding: 60px 0;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.accomplishments-header {
+  text-align: center;
+  margin-bottom: 50px;
+  padding: 0 20px;
+}
+
+.accomplishments-header h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin: 0 0 15px 0;
+  line-height: 1.2;
+}
+
+.accomplishments-header p {
+  font-size: 1.1rem;
+  color: #666;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Certificate Grid - Simple and Reliable */
+.accomplishments-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 0 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.certificate-item {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  height: 250px;
+}
+
+.certificate-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.certificate-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+}
+
+.certificate-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 8px;
+}
+
+/* Mobile Responsive */
 @media screen and (max-width: 768px) {
   .experience {
-    margin-top: 100px; /* You can adjust this for smaller screens if your navbar height changes */
+    margin-top: 100px;
+    padding: 0 15px; /* Adjusted padding for better mobile fit */
+  }
+  
+  .experience-header {
+    padding: 0 15px; /* Consistent with .experience */
+  }
+  
+  .experience-header h1 {
+    font-size: 2.5rem;
+  }
+  
+  .experience-header p {
+    font-size: 1.1rem;
+  }
+  
+  .experience-highlights {
+    gap: 8px;
+  }
+  
+  .highlight-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 10px 0;
+  }
+  
+  .highlight-item .metric {
+    font-size: 1.2rem;
+    min-width: auto;
+    text-align: left;
+  }
+  
+  .tech-stack {
+    gap: 6px;
+  }
+  
+  .tech-tag {
+    font-size: 0.75rem;
+    padding: 4px 8px;
+  }
+  
+  .accomplishments-header h2 {
+    font-size: 2rem;
+  }
+  
+  .accomplishments-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    padding: 0 15px;
+  }
+  
+  .certificate-item {
+    height: 200px;
+  }
+  
+  .certificate-container {
+    padding: 10px;
   }
 }
 
-/* Continue with the rest of your existing styles... */
+@media screen and (max-width: 480px) {
+  .experience {
+    padding: 0 10px; /* Tighter padding for very small screens */
+  }
+  
+  .experience-header {
+    margin-bottom: 40px;
+    padding: 0 10px; /* Consistent with .experience */
+  }
+  
+  .experience-header h1 {
+    font-size: 2rem; /* Slightly smaller for this breakpoint */
+  }
+  
+  .experience-header p {
+    font-size: 1rem;
+  }
+  
+  .accomplishments-section {
+    margin-top: 60px;
+    padding: 20px 0;
+  }
+  
+  .accomplishments-header {
+    margin-bottom: 25px;
+    padding: 0 10px;
+  }
+  
+  .accomplishments-header h2 {
+    font-size: 1.8rem;
+  }
+  
+  .accomplishments-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 0 10px;
+  }
+  
+  .certificate-item {
+    height: 180px;
+    margin: 0 auto;
+    max-width: 350px;
+  }
+  
+  .certificate-container {
+    padding: 8px;
+  }
+}
 
+/* Extra small screens (iPhone SE, older Android phones) */
+@media screen and (max-width: 375px) {
+  .experience {
+    padding: 0 8px; /* Even tighter padding for very small screens */
+  }
+  
+  .experience-header {
+    padding: 0 8px; /* Consistent */
+  }
+  
+  .experience-header h1 {
+    font-size: 1.5rem; /* Further reduced font size */
+  }
+  
+  .experience-header p {
+    font-size: 0.95rem; /* Slightly smaller for paragraphs */
+  }
+  
+  .accomplishments-header {
+    padding: 0 8px; /* Consistent */
+  }
+  
+  .accomplishments-header h2 {
+    font-size: 1.5rem;
+  }
+  
+  .accomplishments-grid {
+    padding: 0 8px;
+    gap: 12px;
+  }
+  
+  .certificate-item {
+    height: 160px;
+    max-width: 300px;
+  }
+  
+  .certificate-container {
+    padding: 6px;
+  }
+}

@@ -64,6 +64,7 @@ import AboutMe from "./pages/About";
 import Contact from "./pages/Contact";
 import Modal from "./pages/Modal";
 import API from "./pages/Api-testing";
+import AIChatbot from "./components/AIChatbot";
 
 function App() {
   const [isProjectDisplayOpen, setIsProjectDisplayOpen] = useState(false);
@@ -104,6 +105,7 @@ function App() {
         </Modal>
       )}
       <Footer />
+      <AIChatbot />
     </div>
   );
 }

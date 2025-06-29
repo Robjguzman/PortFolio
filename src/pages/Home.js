@@ -10,7 +10,7 @@ import "../styles/Home.css";
 
 function Home() {
   const linkedinUrl = "https://www.linkedin.com/in/robertjguzman/";
-  const githubUrl = "https://github.com/Robertguzmanny?tab=repositories";
+  const githubUrl = "https://github.com/Robjguzman/Robertguzmanny";
   const emailurl = "mailto:robert.guzman3@lc.cuny.edu";
 
   const fadeInUp = {
