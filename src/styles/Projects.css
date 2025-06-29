@@ -8,7 +8,7 @@
 }
 .projects h1 {
   text-align: center;
-  color: #2c3e50;
+  color: black;
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: 3rem;
@@ -89,7 +89,7 @@
 
 .projectItem h1 {
   font-size: 22px;
-  color: #2c3e50;
+  color: black;
   font-weight: 600;
   margin: 20px 15px;
   padding: 0 10px;
@@ -98,7 +98,7 @@
 }
 
 .projectItem:hover h1 {
-  color: #34495e;
+  color: black;
 }
 
 @media only screen and (max-width: 1300px) {

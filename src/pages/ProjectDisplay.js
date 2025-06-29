@@ -2,8 +2,7 @@ import React, {  useEffect } from "react";
 import ReactDOM from 'react-dom';
 import { ProjectList } from "../helpers/ProjectList";
 import GitHubIcon from "@material-ui/icons/GitHub";
-import "../styles/ProjectDisplay.css";
-import "../styles/Modal.css"; 
+import "../styles/ProjectDisplay.css"; 
 
 function ProjectDisplay({ onClose, projectId }) {
   const project = ProjectList[projectId];

@@ -1,7 +1,7 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback, useMemo } from 'react';
 import '../styles/AIChatbot.css';
 
-const AIChatbot = () => {
+const AIChatbot = React.memo(() => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
     {
@@ -14,17 +14,24 @@ const AIChatbot = () => {
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef(null);
 
-  const scrollToBottom = () => {
+  const scrollToBottom = useCallback(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
+  }, []);
 
   useEffect(() => {
     scrollToBottom();
-  }, [messages]);
+  }, [messages, scrollToBottom]);
 
   // Complete Resume Information for Robert J. Guzman
   const robertResumeContext = `
 You are Robert J. Guzman's personal AI assistant. Answer questions about Robert based on his complete and current resume below. Be conversational, professional, and helpful.
+CRITICAL - your  responses should be concise and clear yet informative, focusing on Robert's skills, experience, and achievements. Always keep responses under 150 words. 
+if a question is ask and you do not need to mention any of my work experience unless it is relevant to the question, do not mention it. 
+We are not going to mention the work experience unless it is relevant to the question. Since some questions may not require mentioning work experience, focus on Robert's skills, education, and personal background when appropriate.
+
+USE THIS DOWN BELOW AS A REFERENCE FOR ROBERT, BUT WE DONT NEED TO MENTION IT UNLESS IT IS RELEVANT TO THE QUESTION ASKED:
+FOR EXAMPLE: IF THE QUESTION IS ABOUT ROBERT'S EDUCATION, THEN YOU CAN MENTION HIS DEGREE AND GPA. IF THE QUESTION IS ABOUT HIS TECHNICAL SKILLS, THEN YOU CAN MENTION HIS PROGRAMMING LANGUAGES, FRAMEWORKS, AND TOOLS.
+IF THE QUESTION IS A SIMPLE QUESTION LIKE "HI ROBERT, HOW ARE YOU?" THEN YOU CAN JUST RESPOND WITH A SIMPLE "HI, I AM DOING GREAT, THANK YOU FOR ASKING!" OR SOMETHING SIMILAR.
 
 === ROBERT J. GUZMAN - SOFTWARE ENGINEER ===
 
@@ -103,7 +110,6 @@ Attendance Tracking System | Ionic, Firebase, HTML, CSS, TypeScript (January 202
 • Integrated real-time attendance monitoring using Firebase Realtime Database listeners, enabling instant updates and improving system accuracy by 18%
 
 PERSONAL BACKGROUND:
-- Born in Dominican Republic, immigrated to New York at young age
 - Bilingual: Fluent in English and Spanish
 - Passionate about baseball - lifelong player and fan
 - Technology enthusiast since childhood
@@ -116,31 +122,7 @@ Answer any questions about Robert's background, experience, skills, education, o
   // AI API Integration - Multiple options
   const callAI = async (userMessage) => {
     try {
-      // Option 1: OpenAI ChatGPT (requires API key)
-      // Uncomment and add your API key
-      /*
-      const openaiResponse = await fetch('https://api.openai.com/v1/chat/completions', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer YOUR_OPENAI_API_KEY_HERE`
-        },
-        body: JSON.stringify({
-          model: "gpt-3.5-turbo",
-          messages: [
-            { role: "system", content: robertContext },
-            { role: "user", content: userMessage }
-          ],
-          max_tokens: 200,
-          temperature: 0.7
-        })
-      });
       
-      if (openaiResponse.ok) {
-        const data = await openaiResponse.json();
-        return data.choices[0].message.content;
-      }
-      */
 
       // Google Gemini Free API - Using environment variable for security
       const geminiApiKey = process.env.REACT_APP_GEMINI_API_KEY;
@@ -179,7 +161,7 @@ Answer any questions about Robert's background, experience, skills, education, o
     }
   };
 
-  const handleSendMessage = async () => {
+  const handleSendMessage = useCallback(async () => {
     if (!inputValue.trim()) return;
 
     const userMessage = {
@@ -215,28 +197,28 @@ Answer any questions about Robert's background, experience, skills, education, o
     } finally {
       setIsTyping(false);
     }
-  };
+  }, [inputValue]);
 
-  const handleKeyPress = (e) => {
+  const handleKeyPress = useCallback((e) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
       handleSendMessage();
     }
-  };
+  }, [handleSendMessage]);
 
-  const quickQuestions = [
+  const quickQuestions = useMemo(() => [
     "Tell me about Robert's current role at AIG",
     "What's his experience with GenAI and AWS?",
     "How did he progress from intern to full-time engineer?",
     "What are his most impressive achievements?",
     "Tell me about his technical skills and expertise",
     "What projects has he worked on?"
-  ];
+  ], []);
 
-  const handleQuickQuestion = (question) => {
+  const handleQuickQuestion = useCallback((question) => {
     setInputValue(question);
     setTimeout(() => handleSendMessage(), 100);
-  };
+  }, [handleSendMessage]);
 
   return (
     <>
@@ -322,6 +304,8 @@ Answer any questions about Robert's background, experience, skills, education, o
       )}
     </>
   );
-};
+});
+
+AIChatbot.displayName = 'AIChatbot';
 
 export default AIChatbot;

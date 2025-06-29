@@ -29,14 +29,14 @@
 .experience-header h1 {
   font-size: 3rem;
   font-weight: 700;
-  color: #2c3e50;
+  color: black;
   margin: 0 0 20px 0;
   line-height: 1.2;
 }
 
 .experience-header p {
   font-size: 1.2rem;
-  color: #666;
+  color: black;
   margin: 0;
   line-height: 1.6;
 }
@@ -68,7 +68,7 @@
 .vertical-timeline-element-title {
   font-size: 1.5rem !important;
   font-weight: 600 !important;
-  color: #2c3e50 !important;
+  color: black !important;
   margin: 0 0 8px 0 !important;
   line-height: 1.3 !important;
 }
@@ -79,7 +79,7 @@
 
 .vertical-timeline-element-subtitle {
   font-size: 1.1rem !important;
-  color: #666 !important;
+  color: black !important;
   margin: 0 0 20px 0 !important;
   font-weight: 500 !important;
 }
@@ -122,7 +122,7 @@
 
 .highlight-item .description {
   flex: 1;
-  color: #555;
+  color: black;
   font-size: 0.95rem;
   line-height: 1.4;
 }
@@ -137,7 +137,7 @@
 
 .tech-tag {
   background: #e9ecef;
-  color: #495057;
+  color: black;
   padding: 6px 12px;
   border-radius: 20px;
   font-size: 0.8rem;
@@ -173,8 +173,23 @@
 
 /* Timeline Customizations */
 .vertical-timeline::before {
-  background: #2c3e50 !important;
+  background: black !important;
   width: 4px !important;
+}
+
+/* Force all timeline icons to be black */
+.vertical-timeline-element-icon {
+  background: black !important;
+  color: white !important;
+  border: 3px solid black !important;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2) !important;
+}
+
+/* Force all timeline icon content to be white */
+.vertical-timeline-element-icon .MuiSvgIcon-root,
+.vertical-timeline-element-icon svg {
+  color: white !important;
+  fill: white !important;
 }
 
 .current-position .vertical-timeline-element-content {
@@ -210,14 +225,14 @@
 .accomplishments-header h2 {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #2c3e50;
+  color: black;
   margin: 0 0 15px 0;
   line-height: 1.2;
 }
 
 .accomplishments-header p {
   font-size: 1.1rem;
-  color: #666;
+  color: black;
   margin: 0;
   line-height: 1.6;
 }

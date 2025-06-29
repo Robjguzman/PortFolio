@@ -6,6 +6,8 @@ import "../styles/Footer.css";
 function Footer() {
   const linkedinUrl = "https://www.linkedin.com/in/robertjguzman/";
   const githubUrl = "https://github.com/Robjguzman/Robertguzmanny";
+  const currentYear = new Date().getFullYear();
+  
   return (
     <div className="footer">
       <div className="socialMedia">
@@ -17,7 +19,7 @@ function Footer() {
           <GitHubIcon />
         </a>
       </div>
-      <p> &copy; 2024 robguzman.app</p>
+      <p> &copy; {currentYear} robguzman.app</p>
     </div>
   );
 }
