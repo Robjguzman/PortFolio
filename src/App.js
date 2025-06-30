@@ -50,21 +50,22 @@
 
 // export default App;
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense, lazy } from "react";
 import "./App.css";
 import AOS from 'aos';
-import 'aos/dist/aos.css'; // Import AOS styles
+import 'aos/dist/aos.css';
 import Home from "./pages/Home";
-import Projects from "./pages/Projects";
-import Experience from "./pages/Experience";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import ProjectDisplay from "./pages/ProjectDisplay";
-import AboutMe from "./pages/About";
-import Contact from "./pages/Contact";
-import Modal from "./pages/Modal";
-import API from "./pages/Api-testing";
-import AIChatbot from "./components/AIChatbot";
+
+const Projects = lazy(() => import("./pages/Projects"));
+const Experience = lazy(() => import("./pages/Experience"));
+const ProjectDisplay = lazy(() => import("./pages/ProjectDisplay"));
+const AboutMe = lazy(() => import("./pages/About"));
+const Contact = lazy(() => import("./pages/Contact"));
+const Modal = lazy(() => import("./pages/Modal"));
+const API = lazy(() => import("./pages/Api-testing"));
+const AIChatbot = lazy(() => import("./components/AIChatbot"));
 
 function App() {
   const [isProjectDisplayOpen, setIsProjectDisplayOpen] = useState(false);
@@ -80,11 +81,11 @@ function App() {
     setCurrentProjectId(null);
   };
 
-  // Initialize AOS
   useEffect(() => {
     AOS.init({
-      duration: 1000, // Animation duration
-      once: true, // Whether animation should happen only once while scrolling
+      duration: 800,
+      once: true,
+      easing: 'ease-out'
     });
   }, []);
 
@@ -92,20 +93,26 @@ function App() {
     <div className="App">
       <Navbar />
       <main>
-        <Home data-aos="fade-down-left" />
-        <AboutMe />
-        <Projects onProjectClick={handleProjectClick} />
-        <Experience />
-        <Contact />
-        <API />
+        <Home />
+        <Suspense fallback={<div className="loading-spinner">Loading...</div>}>
+          <AboutMe />
+          <Projects onProjectClick={handleProjectClick} />
+          <Experience />
+          <Contact />
+          <API />
+        </Suspense>
       </main>
       {isProjectDisplayOpen && (
-        <Modal onClose={handleClose}>
-          <ProjectDisplay projectId={currentProjectId} onClose={handleClose} />
-        </Modal>
+        <Suspense fallback={<div className="loading-spinner">Loading...</div>}>
+          <Modal onClose={handleClose}>
+            <ProjectDisplay projectId={currentProjectId} onClose={handleClose} />
+          </Modal>
+        </Suspense>
       )}
       <Footer />
-      <AIChatbot />
+      <Suspense fallback={null}>
+        <AIChatbot />
+      </Suspense>
     </div>
   );
 }
