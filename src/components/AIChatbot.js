@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect, useCallback, useMemo } from 'react';
+import { GoogleGenAI } from '@google/genai';
 import '../styles/AIChatbot.css';
 
 const AIChatbot = React.memo(() => {
@@ -119,42 +120,46 @@ PERSONAL BACKGROUND:
 Answer any questions about Robert's background, experience, skills, education, or career aspirations. Be conversational and provide specific details from this resume when relevant. Robert is currently working at AIG as a Software Engineer in the Information Security Office and has extensive experience with GenAI, AWS, Spring Boot, Angular, and enterprise-level software development.
 `;
 
-  // AI API Integration - Multiple options
+  // AI API Integration - Using new Google GenAI SDK
   const callAI = async (userMessage) => {
     try {
-      
-
-      // Google Gemini Free API - Using environment variable for security
       const geminiApiKey = process.env.REACT_APP_GEMINI_API_KEY;
-      
-      if (geminiApiKey) {
-        const geminiResponse = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${geminiApiKey}`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            contents: [{
-              parts: [{
-                text: `${robertResumeContext}\n\nUser question: ${userMessage}\n\nPlease provide a helpful, professional response about Robert. Keep responses conversational and under 150 words.`
-              }]
-            }]
-          })
-        });
-        
-        if (geminiResponse.ok) {
-          const data = await geminiResponse.json();
-          return data.candidates[0].content.parts[0].text;
-        } else {
-          console.error('Gemini API error:', geminiResponse.status, geminiResponse.statusText);
-          const errorData = await geminiResponse.text();
-          console.error('Error details:', errorData);
-        }
+
+      console.log('API Key exists:', !!geminiApiKey);
+
+      if (!geminiApiKey) {
+        console.error('REACT_APP_GEMINI_API_KEY is not set in environment variables');
+        throw new Error('API key not configured');
       }
 
-      // Fallback to simple error message if Gemini fails
-      return "I am having trouble connecting to my AI service right now, but I would love to help you learn about Robert! Try asking about his current role at AIG, his experience with GenAI and AWS, or his technical skills.";
-      
+      console.log('Attempting to call Gemini API with new SDK...');
+
+      // Initialize the Google GenAI client
+      const ai = new GoogleGenAI({ apiKey: geminiApiKey });
+
+      // Generate content using the new SDK
+      const response = await ai.models.generateContent({
+        model: "gemini-2.0-flash-exp",
+        contents: `You are Robert J. Guzman's AI assistant on his portfolio website. You have two main functions:
+
+1. Answer questions about Robert using the resume information provided below
+2. Act as a helpful AI assistant for general questions (like the date, weather, coding help, etc.)
+
+When users ask about Robert, use this information:
+${robertResumeContext}
+
+For questions about Robert: Keep responses concise (under 150 words), professional, and only mention work experience when relevant to the question.
+
+For general questions: Answer helpfully and naturally as a knowledgeable AI assistant. Be conversational and friendly.
+
+User question: ${userMessage}
+
+Provide a helpful response:`
+      });
+
+      console.log('Gemini API response received successfully');
+      return response.text;
+
     } catch (error) {
       console.error('AI API Error:', error);
       return "I am having trouble connecting to my AI service right now, but I would love to help you learn about Robert! Try asking about his current role at AIG, his experience with GenAI and AWS, or his technical skills.";
