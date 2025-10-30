@@ -78,6 +78,7 @@ Software Engineer, GenAI | July 2024 – April 2025
 
 PREVIOUS EXPERIENCE:
 
+
 TD Securities (TD Bank) | Software Engineer Intern (June 2023 - August 2023) - Manhattan, NY
 • Architected and implemented an innovative Oracle SQL database schema to streamline trading server requests, resulting in a 17% reduction in data storage and retrieval time
 • Engineered a high-performance Java web service with Spring Boot and Maven, improving data processing efficiency by 22% and optimizing trading operations for greater reliability and speed
