@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   VerticalTimeline,
   VerticalTimelineElement,
@@ -17,6 +17,27 @@ import bachelors from "../assets/bachelors.png"
 
 function Experience() {
   const images = [bachelors, associate, dean, dean2, certificate, data, CyberSec];
+  const [selectedImageIndex, setSelectedImageIndex] = useState(null);
+
+  const openModal = (index) => {
+    setSelectedImageIndex(index);
+  };
+
+  const closeModal = () => {
+    setSelectedImageIndex(null);
+  };
+
+  const showPreviousImage = () => {
+    setSelectedImageIndex((prevIndex) =>
+      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+    );
+  };
+
+  const showNextImage = () => {
+    setSelectedImageIndex((prevIndex) =>
+      prevIndex === images.length - 1 ? 0 : prevIndex + 1
+    );
+  };
 
   return (
     <div id="experience">
@@ -389,17 +410,50 @@ function Experience() {
           <div className="accomplishments-grid">
             {images.map((image, index) => (
               <div key={index} className="certificate-item">
-                <div className="certificate-container">
+                <div className="certificate-container" onClick={() => openModal(index)}>
                   <img
                     src={image}
                     alt={`Certificate ${index + 1}`}
                     className="certificate-img"
                   />
+                  <div className="certificate-overlay">
+                    <span className="view-text">Click to view</span>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
         </div>
+
+        {/* Modal for viewing certificate in full size with navigation */}
+        {selectedImageIndex !== null && (
+          <div className="certificate-modal" onClick={closeModal}>
+            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+              <span className="close-button" onClick={closeModal}>&times;</span>
+
+              {/* Previous button */}
+              <button className="nav-button prev-button" onClick={showPreviousImage}>
+                &#8249;
+              </button>
+
+              {/* Next button */}
+              <button className="nav-button next-button" onClick={showNextImage}>
+                &#8250;
+              </button>
+
+              <img
+                src={images[selectedImageIndex]}
+                alt={`Certificate ${selectedImageIndex + 1}`}
+                className="modal-image"
+              />
+
+              {/* Image counter */}
+              <div className="image-counter">
+                {selectedImageIndex + 1} / {images.length}
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

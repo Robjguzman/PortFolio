@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect, useCallback, useMemo } from 'react';
-import { GoogleGenAI } from '@google/genai';
+// import { GoogleGenAI } from '@google/genai'; // Temporarily disabled for Groq testing
+import Groq from 'groq-sdk';
 import '../styles/AIChatbot.css';
 
 const AIChatbot = React.memo(() => {
@@ -121,30 +122,19 @@ PERSONAL BACKGROUND:
 Answer any questions about Robert's background, experience, skills, education, or career aspirations. Be conversational and provide specific details from this resume when relevant. Robert is currently working at AIG as a Software Engineer in the Information Security Office and has extensive experience with GenAI, AWS, Spring Boot, Angular, and enterprise-level software development.
 `;
 
-  // AI API Integration - Using new Google GenAI SDK
+  // AI API Integration - Using GROQ only for testing
   const callAI = async (userMessage) => {
-    try {
-      const geminiApiKey = process.env.REACT_APP_GEMINI_API_KEY;
+    const groqApiKey = process.env.REACT_APP_GROQ_API_KEY;
 
-      console.log('API Key exists:', !!geminiApiKey);
+    if (!groqApiKey) {
+      console.error('REACT_APP_GROQ_API_KEY is not set in environment variables');
+      return "I am having trouble connecting to my AI service right now, but I would love to help you learn about Robert! Try asking about his current role at AIG, his experience with GenAI and AWS, or his technical skills.";
+    }
 
-      if (!geminiApiKey) {
-        console.error('REACT_APP_GEMINI_API_KEY is not set in environment variables');
-        throw new Error('API key not configured');
-      }
-
-      console.log('Attempting to call Gemini API with new SDK...');
-
-      // Initialize the Google GenAI client
-      const ai = new GoogleGenAI({ apiKey: geminiApiKey });
-
-      // Generate content using the new SDK
-      const response = await ai.models.generateContent({
-        model: "gemini-2.0-flash-exp",
-        contents: `You are Robert J. Guzman's AI assistant on his portfolio website. You have two main functions:
+    const promptText = `You are Robert J. Guzman's AI assistant on his portfolio website. You have two main functions:
 
 1. Answer questions about Robert using the resume information provided below
-2. Act as a helpful AI assistant for general questions (like the date, weather, coding help, etc.)
+2. Act as a helpful AI assistant for general questions like a normal chatbot and provide friendly conversation
 
 When users ask about Robert, use this information:
 ${robertResumeContext}
@@ -155,16 +145,46 @@ For general questions: Answer helpfully and naturally as a knowledgeable AI assi
 
 User question: ${userMessage}
 
-Provide a helpful response:`
-      });
+Provide a helpful response:`;
 
-      console.log('Gemini API response received successfully');
-      return response.text;
+    // Using Groq models from environment variable for security and configurability
+    const groqModelsEnv = process.env.REACT_APP_GROQ_MODELS;
 
-    } catch (error) {
-      console.error('AI API Error:', error);
+    if (!groqModelsEnv) {
+      console.error('REACT_APP_GROQ_MODELS is not set in environment variables');
       return "I am having trouble connecting to my AI service right now, but I would love to help you learn about Robert! Try asking about his current role at AIG, his experience with GenAI and AWS, or his technical skills.";
     }
+
+    const groqModels = groqModelsEnv.split(',').map(model => model.trim());
+
+    const groq = new Groq({
+      apiKey: groqApiKey,
+      dangerouslyAllowBrowser: true  // Required for browser usage
+    });
+
+    for (let i = 0; i < groqModels.length; i++) {
+      const model = groqModels[i];
+      try {
+        // console.log(`Attempting Groq model: ${model}`);
+
+        const response = await groq.chat.completions.create({
+          messages: [{ role: "user", content: promptText }],
+          model: model,
+          temperature: 0.7,
+          max_tokens: 500
+        });
+
+        console.log(`✓ Successfully received response from Groq: ${model}`);
+        return response.choices[0].message.content;
+
+      } catch (error) {
+        console.error(`✗ Groq model ${model} failed:`, error.message);
+      }
+    }
+
+    // If all Groq models fail, return fallback message
+    console.error('All Groq models failed. Returning fallback message.');
+    return "I am having trouble connecting to my AI service right now, but I would love to help you learn about Robert! Try asking about his current role at AIG, his experience with GenAI and AWS, or his technical skills.";
   };
 
   const handleSendMessage = useCallback(async () => {
