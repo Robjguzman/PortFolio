@@ -326,6 +326,8 @@
   justify-content: center;
   z-index: 10000;
   animation: fadeIn 0.3s ease;
+  padding: 20px;
+  overflow: auto;
 }
 
 @keyframes fadeIn {
@@ -339,13 +341,17 @@
 
 .modal-content {
   position: relative;
-  max-width: 90%;
-  max-height: 90%;
+  max-width: 1200px;
+  width: 90%;
   background: white;
   border-radius: 15px;
-  padding: 20px;
+  padding: 60px 80px 60px 80px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
   animation: slideIn 0.3s ease;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 @keyframes slideIn {
@@ -361,10 +367,10 @@
 
 .close-button {
   position: absolute;
-  top: -15px;
-  right: -15px;
-  width: 40px;
-  height: 40px;
+  top: 10px;
+  right: 10px;
+  width: 45px;
+  height: 45px;
   background: black;
   color: white;
   border: none;
@@ -378,6 +384,7 @@
   line-height: 1;
   padding: 0;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  z-index: 11;
 }
 
 .close-button:hover {
@@ -398,7 +405,7 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.8);
   color: white;
   border: none;
   width: 50px;
@@ -413,7 +420,7 @@
   line-height: 1;
   padding: 0;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  z-index: 10;
+  z-index: 11;
 }
 
 .nav-button:hover {
@@ -422,17 +429,17 @@
 }
 
 .prev-button {
-  left: -25px;
+  left: 15px;
 }
 
 .next-button {
-  right: -25px;
+  right: 15px;
 }
 
 /* Image counter */
 .image-counter {
   position: absolute;
-  bottom: -40px;
+  bottom: 15px;
   left: 50%;
   transform: translateX(-50%);
   background: rgba(0, 0, 0, 0.8);
@@ -509,14 +516,16 @@
 
   /* Modal responsive */
   .modal-content {
-    max-width: 95%;
-    padding: 15px;
+    width: 95%;
+    padding: 50px 20px 50px 20px;
   }
 
   .close-button {
-    width: 35px;
-    height: 35px;
-    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+    font-size: 1.8rem;
+    top: 10px;
+    right: 10px;
   }
 
   .view-text {
@@ -525,9 +534,9 @@
 
   /* Navigation buttons on mobile */
   .nav-button {
-    width: 40px;
-    height: 40px;
-    font-size: 2rem;
+    width: 45px;
+    height: 45px;
+    font-size: 2.2rem;
   }
 
   .prev-button {
@@ -543,54 +552,93 @@
     font-size: 0.85rem;
     padding: 6px 12px;
   }
+
+  .modal-image {
+    max-height: 70vh;
+  }
 }
 
 @media screen and (max-width: 480px) {
   .experience {
     padding: 0 10px; /* Tighter padding for very small screens */
   }
-  
+
   .experience-header {
     margin-bottom: 40px;
     padding: 0 10px; /* Consistent with .experience */
   }
-  
+
   .experience-header h1 {
     font-size: 2rem; /* Slightly smaller for this breakpoint */
   }
-  
+
   .experience-header p {
     font-size: 1rem;
   }
-  
+
   .accomplishments-section {
     margin-top: 60px;
     padding: 20px 0;
   }
-  
+
   .accomplishments-header {
     margin-bottom: 25px;
     padding: 0 10px;
   }
-  
+
   .accomplishments-header h2 {
     font-size: 1.8rem;
   }
-  
+
   .accomplishments-grid {
     grid-template-columns: 1fr;
     gap: 15px;
     padding: 0 10px;
   }
-  
+
   .certificate-item {
     height: 180px;
     margin: 0 auto;
     max-width: 350px;
   }
-  
+
   .certificate-container {
     padding: 8px;
+  }
+
+  /* Modal responsive for small phones */
+  .modal-content {
+    width: 98%;
+    padding: 40px 15px 40px 15px;
+  }
+
+  .close-button {
+    width: 35px;
+    height: 35px;
+    font-size: 1.5rem;
+  }
+
+  .nav-button {
+    width: 40px;
+    height: 40px;
+    font-size: 2rem;
+  }
+
+  .prev-button {
+    left: 5px;
+  }
+
+  .next-button {
+    right: 5px;
+  }
+
+  .image-counter {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+  }
+
+  .modal-image {
+    max-height: 65vh;
   }
 }
 
