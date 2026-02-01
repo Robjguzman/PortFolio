@@ -36,6 +36,7 @@ const Home = React.memo(() => {
               src={character_student} 
               alt="Character"
               loading="eager"
+              // eslint-disable-next-line react/no-unknown-property
               fetchpriority="high"
             />
           </motion.div>
