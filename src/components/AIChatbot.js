@@ -122,7 +122,7 @@ PERSONAL BACKGROUND:
 Answer any questions about Robert's background, experience, skills, education, or career aspirations. Be conversational and provide specific details from this resume when relevant. Robert is currently working at AIG as a Software Engineer in the Information Security Office and has extensive experience with GenAI, AWS, Spring Boot, Angular, and enterprise-level software development.
 `;
 
-  // AI API Integration - Using GROQ only for testing
+  // AI API Integration - Using GROQ with enhanced capabilities
   const callAI = async (userMessage) => {
     const groqApiKey = process.env.REACT_APP_GROQ_API_KEY;
 
@@ -131,17 +131,27 @@ Answer any questions about Robert's background, experience, skills, education, o
       return "I am having trouble connecting to my AI service right now, but I would love to help you learn about Robert! Try asking about his current role at AIG, his experience with GenAI and AWS, or his technical skills.";
     }
 
-    const promptText = `You are Robert J. Guzman's AI assistant on his portfolio website. You have two main functions:
+    // Get current date for context
+    const currentDate = new Date().toLocaleDateString('en-US', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+
+    const promptText = `You are Robert J. Guzman's AI assistant on his portfolio website. Today's date is ${currentDate}.
+
+You have two main functions:
 
 1. Answer questions about Robert using the resume information provided below
-2. Act as a helpful AI assistant for general questions like a normal chatbot and provide friendly conversation
+2. Act as a helpful AI assistant for general questions and provide friendly conversation
 
 When users ask about Robert, use this information:
 ${robertResumeContext}
 
 For questions about Robert: Keep responses concise (under 150 words), professional, and only mention work experience when relevant to the question.
 
-For general questions: Answer helpfully and naturally as a knowledgeable AI assistant. Be conversational and friendly.
+For general questions: Answer helpfully and naturally as a knowledgeable AI assistant. Be conversational and friendly. If asked about VERY recent events (sports games, breaking news, current events in the last few days), politely explain that you don't have access to real-time information but can discuss the topic generally or historical context.
 
 User question: ${userMessage}
 
@@ -171,7 +181,8 @@ Provide a helpful response:`;
           messages: [{ role: "user", content: promptText }],
           model: model,
           temperature: 0.7,
-          max_tokens: 500
+          max_completion_tokens: 500,
+          ...(model.startsWith('openai/gpt-oss') ? { reasoning_effort: 'medium' } : {})
         });
 
         console.log(`✓ Successfully received response from Groq: ${model}`);
